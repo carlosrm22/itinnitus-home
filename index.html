@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>itinnitus · Carlos Alfonso Romero Muñoz</title>
+  <meta name="description" content="Enlaces de Carlos Alfonso Romero Muñoz: proyectos en GitHub y libros publicados en Amazon." />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+
+  <!-- Open Graph / redes sociales -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="itinnitus · Carlos Alfonso Romero Muñoz" />
+  <meta property="og:description" content="Proyectos en GitHub y libros publicados en Amazon." />
+  <meta property="og:url" content="https://itinnitus.com" />
+  <meta property="og:image" content="https://itinnitus.com/assets/logo.svg" />
+  <meta name="twitter:card" content="summary" />
+
+  <style>
+    :root {
+      --blue: #1D71B8;
+      --red: #E30613;
+      --yellow: #FFDE00;
+      --bg: #ffffff;
+      --bg-soft: #f5f6f8;
+      --card: #ffffff;
+      --text: #16181d;
+      --muted: #6b7280;
+      --border: #e6e8ec;
+      --shadow: 0 1px 2px rgba(16,24,40,.04), 0 8px 24px rgba(16,24,40,.06);
+      --radius: 16px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0c0e12;
+        --bg-soft: #14171d;
+        --card: #161a21;
+        --text: #f2f4f7;
+        --muted: #98a2b3;
+        --border: #232934;
+        --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.45);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Inter", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      background-image:
+        radial-gradient(60% 50% at 50% -10%, rgba(29,113,184,.10), transparent 70%),
+        radial-gradient(50% 40% at 90% 0%, rgba(255,222,0,.08), transparent 70%);
+      min-height: 100vh;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: clamp(40px, 8vw, 72px) 20px 56px;
+    }
+
+    /* Header */
+    header { text-align: center; margin-bottom: 36px; }
+    .logo {
+      width: 92px; height: 92px;
+      margin: 0 auto 18px;
+      display: block;
+      filter: drop-shadow(0 6px 16px rgba(29,113,184,.25));
+    }
+    h1 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      margin: 0 0 6px;
+      letter-spacing: -.02em;
+      font-weight: 700;
+    }
+    .tagline {
+      margin: 0 auto;
+      max-width: 36ch;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    /* Secciones */
+    .section-label {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--muted);
+      font-weight: 700;
+      margin: 34px 4px 12px;
+    }
+
+    /* Tarjetas de enlace */
+    .links { display: grid; gap: 12px; }
+    .link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 18px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      color: var(--text);
+      text-decoration: none;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+    .link:hover, .link:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--blue);
+      box-shadow: 0 10px 28px rgba(29,113,184,.16);
+      outline: none;
+    }
+    .link:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+    .link .icon {
+      flex: 0 0 auto;
+      width: 38px; height: 38px;
+      display: grid; place-items: center;
+      border-radius: 11px;
+      background: var(--bg-soft);
+    }
+    .link .icon svg { width: 22px; height: 22px; }
+    .link .body { flex: 1 1 auto; min-width: 0; }
+    .link .title { font-weight: 600; font-size: 1rem; }
+    .link .sub { color: var(--muted); font-size: .85rem; }
+    .link .chev { flex: 0 0 auto; color: var(--muted); transition: transform .15s ease; }
+    .link:hover .chev { transform: translateX(3px); color: var(--blue); }
+
+    /* Acentos de color por categoría */
+    .accent-blue .icon   { background: rgba(29,113,184,.12); color: var(--blue); }
+    .accent-red .icon    { background: rgba(227,6,19,.12);  color: var(--red); }
+    .accent-yellow .icon { background: rgba(255,222,0,.18); color: #b58a00; }
+
+    /* Footer */
+    footer {
+      margin-top: 44px;
+      text-align: center;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <img class="logo" src="assets/logo.svg" alt="Logo itinnitus" width="92" height="92" />
+      <h1>Carlos Alfonso Romero Muñoz</h1>
+      <p class="tagline">Autor y desarrollador · educación Montessori, símbolos y código.</p>
+    </header>
+
+    <!-- ============ PROYECTOS / CÓDIGO ============ -->
+    <p class="section-label">Código</p>
+    <nav class="links">
+      <a class="link accent-blue" href="https://github.com/carlosrm22" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+        </span>
+        <span class="body">
+          <span class="title">GitHub</span>
+          <span class="sub">@carlosrm22 · mis repositorios y proyectos</span>
+        </span>
+        <span class="chev" aria-hidden="true">→</span>
+      </a>
+    </nav>
+
+    <!-- ============ LIBROS ============ -->
+    <p class="section-label">Libros</p>
+    <nav class="links">
+      <!--
+        TODO (Carlos): reemplazar los href="#" por las URLs reales de Amazon
+        (formato https://www.amazon.com/dp/ASIN) o por tu página de Author Central.
+        Borra las tarjetas de libros que aún no estén publicados.
+      -->
+      <a class="link accent-red" href="#" rel="noopener">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </span>
+        <span class="body">
+          <span class="title">Hermetismo lúcido</span>
+          <span class="sub">Biblioteca Hermética · Vol. I</span>
+        </span>
+        <span class="chev" aria-hidden="true">→</span>
+      </a>
+
+      <a class="link accent-red" href="#" rel="noopener">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </span>
+        <span class="body">
+          <span class="title">Tarot lúcido</span>
+          <span class="sub">Biblioteca Hermética · Vol. II</span>
+        </span>
+        <span class="chev" aria-hidden="true">→</span>
+      </a>
+
+      <a class="link accent-yellow" href="#" rel="noopener">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </span>
+        <span class="body">
+          <span class="title">Cómo volverse millonario tomando malas decisiones</span>
+          <span class="sub">Sátira financiera</span>
+        </span>
+        <span class="chev" aria-hidden="true">→</span>
+      </a>
+
+      <!-- Tarjeta "todos mis libros" → Author Central -->
+      <a class="link accent-blue" href="#" rel="noopener">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </span>
+        <span class="body">
+          <span class="title">Todos mis libros en Amazon</span>
+          <span class="sub">Página de autor (Author Central)</span>
+        </span>
+        <span class="chev" aria-hidden="true">→</span>
+      </a>
+    </nav>
+
+    <!--
+      Huecos listos para sumar después:
+      · Mermaid → https://mermaid.itinnitus.com
+      · AMMAC / Montessori
+      · Astrología (astro@itinnitus.com)
+      · Contacto / email
+    -->
+
+    <footer>
+      <p>© <span id="year">2026</span> · itinnitus.com</p>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
