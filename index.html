@@ -341,14 +341,19 @@
     .pl-yt:hover { background: rgba(227,6,19,.18); }
     .pl-yt svg { width: 17px; height: 17px; fill: currentColor; }
 
-    /* Encabezado de álbum dentro del reproductor */
+    /* Encabezado de álbum dentro del reproductor (colapsable) */
     .pl-ahead {
       display: flex; align-items: center; gap: 12px;
+      width: 100%;
       padding: 12px 18px;
-      border-top: 1px solid var(--border);
+      border: none; border-top: 1px solid var(--border);
       background: var(--bg-soft);
+      color: var(--text); font: inherit; text-align: left;
+      cursor: pointer;
+      transition: background .12s ease;
     }
     .pl-ahead:first-child { border-top: none; }
+    .pl-ahead:hover { background: rgba(29,113,184,.06); }
     .pl-ah-cover {
       flex: 0 0 auto; width: 46px; height: 46px;
       border-radius: 9px; overflow: hidden;
@@ -366,6 +371,25 @@
       flex: 0 0 auto; font-size: .68rem; color: var(--muted);
       font-variant-numeric: tabular-nums; white-space: nowrap;
     }
+    .pl-ah-toggle { flex: 0 0 auto; color: var(--muted); font-size: .9rem; transition: transform .2s ease; }
+    .pl-ahead.open .pl-ah-toggle { transform: rotate(90deg); }
+    .pl-atracks.collapsed { display: none; }
+    .pl-atracks .pl-track:last-child { border-bottom: none; }
+
+    /* Navegación por secciones (chips de anclaje) */
+    .section-nav {
+      display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+      margin: -6px 0 6px;
+    }
+    .section-nav a {
+      font-size: .82rem; font-weight: 600;
+      color: var(--text); background: var(--card);
+      border: 1px solid var(--border); border-radius: 99px;
+      padding: 7px 14px; text-decoration: none;
+      transition: border-color .15s ease, color .15s ease, transform .15s ease;
+    }
+    .section-nav a:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-1px); }
+    .section-label { scroll-margin-top: 14px; }
 
     /* Footer */
     footer {
@@ -385,23 +409,16 @@
       <p class="tagline">Autor, compositor y desarrollador · educación Montessori, símbolos, música y código.</p>
     </header>
 
-    <!-- ============ PROYECTOS / CÓDIGO ============ -->
-    <p class="section-label">Código</p>
-    <nav class="links">
-      <a class="link accent-blue" href="https://github.com/carlosrm22" target="_blank" rel="noopener">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
-        </span>
-        <span class="body">
-          <span class="title">GitHub</span>
-          <span class="sub">@carlosrm22 · mis repositorios y proyectos</span>
-        </span>
-        <span class="chev" aria-hidden="true">→</span>
-      </a>
+    <!-- ============ NAVEGACIÓN ============ -->
+    <nav class="section-nav" aria-label="Secciones">
+      <a href="#libros">Libros</a>
+      <a href="#musica">Música</a>
+      <a href="#codigo">Código</a>
+      <a href="#contacto">Contacto</a>
     </nav>
 
     <!-- ============ LIBROS ============ -->
-    <p class="section-label">Libros</p>
+    <p class="section-label" id="libros">Libros</p>
 
     <p class="sub-label">Narrativa</p>
     <div class="booklist">
@@ -471,7 +488,7 @@
     </div>
 
     <!-- ============ MÚSICA ============ -->
-    <p class="section-label">Música</p>
+    <p class="section-label" id="musica">Música</p>
     <section class="player" id="player" aria-label="Reproductor de música">
       <div class="pl-now">
         <div class="pl-art" id="plArt" aria-hidden="true">
@@ -506,8 +523,23 @@
       <div class="pl-list" id="plList"></div>
     </section>
 
+    <!-- ============ PROYECTOS / CÓDIGO ============ -->
+    <p class="section-label" id="codigo">Código</p>
+    <nav class="links">
+      <a class="link accent-blue" href="https://github.com/carlosrm22" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+        </span>
+        <span class="body">
+          <span class="title">GitHub</span>
+          <span class="sub">@carlosrm22 · mis repositorios y proyectos</span>
+        </span>
+        <span class="chev" aria-hidden="true">→</span>
+      </a>
+    </nav>
+
     <!-- ============ CONTACTO ============ -->
-    <p class="section-label">Contacto</p>
+    <p class="section-label" id="contacto">Contacto</p>
     <nav class="links">
       <a class="link accent-yellow" href="mailto:contacto@itinnitus.com">
         <span class="icon" aria-hidden="true">
@@ -642,21 +674,32 @@
         img.src = cover;
       }
 
-      // Construir la lista agrupada por álbum
+      // Construir la lista agrupada por álbum (cada álbum se colapsa/expande)
+      const qWrap = [];
       let qi = 0;
-      ALBUMS.forEach(al => {
-        const head = document.createElement('div');
-        head.className = 'pl-ahead';
+      ALBUMS.forEach((al, ai) => {
+        const head = document.createElement('button');
+        head.type = 'button';
+        head.className = 'pl-ahead' + (ai === 0 ? ' open' : '');
+        head.setAttribute('aria-expanded', ai === 0 ? 'true' : 'false');
         head.innerHTML =
           '<span class="pl-ah-cover"></span>' +
           '<span class="pl-ah-info"><span class="pl-ah-title"></span>' +
           '<span class="pl-ah-meta"></span></span>' +
           '<span class="pl-ah-count">' + al.tracks.length +
-          (al.tracks.length === 1 ? ' pista' : ' pistas') + '</span>';
+          (al.tracks.length === 1 ? ' pista' : ' pistas') + '</span>' +
+          '<span class="pl-ah-toggle" aria-hidden="true">▸</span>';
         head.querySelector('.pl-ah-title').textContent = al.title;
         head.querySelector('.pl-ah-meta').textContent = al.meta || '';
         paintCover(head.querySelector('.pl-ah-cover'), al.cover);
-        listEl.appendChild(head);
+
+        const wrap = document.createElement('div');
+        wrap.className = 'pl-atracks' + (ai === 0 ? '' : ' collapsed');
+        head.addEventListener('click', () => {
+          const collapsed = wrap.classList.toggle('collapsed');
+          head.classList.toggle('open', !collapsed);
+          head.setAttribute('aria-expanded', String(!collapsed));
+        });
 
         al.tracks.forEach((t, j) => {
           const idx = qi++;
@@ -681,10 +724,17 @@
             row.appendChild(yt);
           }
           row.addEventListener('click', () => { current === idx ? toggle() : load(idx, true); });
-          listEl.appendChild(row);
+          wrap.appendChild(row);
           rowEls.push(row);
+          qWrap.push({ head, wrap });
         });
+
+        listEl.appendChild(head);
+        listEl.appendChild(wrap);
       });
+
+      // Portada inicial: la del primer álbum
+      if (ALBUMS[0]) paintCover(artEl, ALBUMS[0].cover);
 
       function highlight() {
         rowEls.forEach((r, i) => r.classList.toggle('active', i === current));
@@ -698,6 +748,13 @@
         albumEl.textContent = al.title;
         paintCover(artEl, al.cover);
         highlight();
+        // Abrir el álbum de la pista en curso si estaba colapsado
+        const w = qWrap[i];
+        if (w) {
+          w.wrap.classList.remove('collapsed');
+          w.head.classList.add('open');
+          w.head.setAttribute('aria-expanded', 'true');
+        }
         if (play) audio.play().catch(() => {});
       }
 
