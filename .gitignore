@@ -2,3 +2,6 @@
 node_modules/
 .wrangler/
 *.log
+
+# Audios pesados: se publican por wrangler direct-upload, no por git
+assets/music/

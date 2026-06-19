@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>itinnitus · Carlos Alfonso Romero Muñoz</title>
-  <meta name="description" content="Enlaces de Carlos Alfonso Romero Muñoz: proyectos en GitHub y libros publicados en Amazon." />
+  <meta name="description" content="Enlaces de Carlos Alfonso Romero Muñoz: música y composición, libros publicados en Amazon y proyectos en GitHub." />
   <link rel="icon" type="image/png" sizes="256x256" href="assets/favicon.png" />
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png" />
   <link rel="apple-touch-icon" href="assets/favicon.png" />
@@ -12,7 +12,7 @@
   <!-- Open Graph / redes sociales -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="itinnitus · Carlos Alfonso Romero Muñoz" />
-  <meta property="og:description" content="Proyectos en GitHub y libros publicados en Amazon." />
+  <meta property="og:description" content="Música y composición, libros publicados en Amazon y proyectos en GitHub." />
   <meta property="og:url" content="https://itinnitus.com" />
   <meta property="og:image" content="https://itinnitus.com/assets/carlos.jpg" />
   <meta name="twitter:card" content="summary" />
@@ -214,6 +214,133 @@
       box-shadow: 0 1px 5px rgba(0,0,0,.55);
     }
 
+    /* ============ MÚSICA / REPRODUCTOR ============ */
+    .player {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .pl-now {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 18px;
+    }
+    .pl-art {
+      flex: 0 0 auto;
+      width: 64px; height: 64px;
+      border-radius: 12px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, rgba(29,113,184,.18), rgba(255,222,0,.18));
+      color: var(--blue);
+      overflow: hidden;
+    }
+    .pl-art img { width: 100%; height: 100%; object-fit: cover; }
+    .pl-art svg { width: 30px; height: 30px; }
+    .pl-meta { flex: 1 1 auto; min-width: 0; }
+    .pl-kicker {
+      font-size: .68rem; text-transform: uppercase; letter-spacing: .1em;
+      font-weight: 700; color: var(--muted);
+    }
+    .pl-title {
+      font-weight: 700; font-size: 1.05rem; line-height: 1.25;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .pl-album { font-size: .82rem; color: var(--muted); }
+
+    .pl-progress { padding: 0 18px 4px; }
+    .pl-bar {
+      position: relative;
+      height: 6px;
+      border-radius: 99px;
+      background: var(--bg-soft);
+      cursor: pointer;
+      border: 1px solid var(--border);
+    }
+    .pl-fill {
+      position: absolute; top: 0; left: 0; height: 100%;
+      width: 0%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--blue), #4aa3e0);
+    }
+    .pl-times {
+      display: flex; justify-content: space-between;
+      font-size: .72rem; color: var(--muted);
+      margin-top: 6px; font-variant-numeric: tabular-nums;
+    }
+
+    .pl-controls {
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; padding: 4px 18px 16px;
+    }
+    .pl-btn {
+      display: grid; place-items: center;
+      border: 1px solid var(--border);
+      background: var(--bg-soft);
+      color: var(--text);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+    .pl-btn:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-1px); }
+    .pl-btn:active { transform: scale(.94); }
+    .pl-btn svg { width: 20px; height: 20px; fill: currentColor; }
+    .pl-btn.side { width: 42px; height: 42px; }
+    .pl-btn.play {
+      width: 56px; height: 56px;
+      background: var(--blue); color: #fff; border-color: var(--blue);
+    }
+    .pl-btn.play:hover { color: #fff; filter: brightness(1.06); }
+    .pl-btn.play svg { width: 24px; height: 24px; }
+
+    .pl-list { border-top: 1px solid var(--border); }
+    .pl-track {
+      display: flex; align-items: center; gap: 12px;
+      width: 100%;
+      padding: 12px 18px;
+      background: none; border: none;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      text-align: left;
+      cursor: pointer;
+      font: inherit;
+      transition: background .12s ease;
+    }
+    .pl-list .pl-track:last-child { border-bottom: none; }
+    .pl-track:hover { background: var(--bg-soft); }
+    .pl-track.active { background: rgba(29,113,184,.08); }
+    .pl-track.active .pl-tnum { color: var(--blue); }
+    .pl-tnum {
+      flex: 0 0 auto; width: 18px;
+      font-size: .8rem; color: var(--muted);
+      font-variant-numeric: tabular-nums; text-align: center;
+    }
+    .pl-track.active .pl-tnum .eq { display: flex; }
+    .pl-track.active .pl-tnum .n { display: none; }
+    .pl-tnum .eq { display: none; gap: 2px; height: 13px; align-items: flex-end; justify-content: center; }
+    .pl-tnum .eq i {
+      width: 3px; background: var(--blue); border-radius: 2px;
+      animation: eq 1s ease-in-out infinite;
+    }
+    .pl-tnum .eq i:nth-child(1) { height: 40%; animation-delay: -.2s; }
+    .pl-tnum .eq i:nth-child(2) { height: 100%; animation-delay: -.5s; }
+    .pl-tnum .eq i:nth-child(3) { height: 65%; animation-delay: 0s; }
+    @keyframes eq { 0%,100% { transform: scaleY(.4); } 50% { transform: scaleY(1); } }
+    .pl-tinfo { flex: 1 1 auto; min-width: 0; }
+    .pl-tname { font-weight: 600; font-size: .92rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pl-talbum { font-size: .76rem; color: var(--muted); }
+    .pl-yt {
+      flex: 0 0 auto;
+      display: inline-grid; place-items: center;
+      width: 30px; height: 30px; border-radius: 8px;
+      color: var(--red);
+      background: rgba(227,6,19,.10);
+    }
+    .pl-yt:hover { background: rgba(227,6,19,.18); }
+    .pl-yt svg { width: 17px; height: 17px; fill: currentColor; }
+
     /* Footer */
     footer {
       margin-top: 44px;
@@ -229,7 +356,7 @@
     <header>
       <img class="avatar" src="assets/carlos.jpg" alt="Carlos Alfonso Romero Muñoz" width="116" height="116" />
       <h1>Carlos Alfonso Romero Muñoz</h1>
-      <p class="tagline">Autor y desarrollador · educación Montessori, símbolos y código.</p>
+      <p class="tagline">Autor, compositor y desarrollador · educación Montessori, símbolos, música y código.</p>
     </header>
 
     <!-- ============ PROYECTOS / CÓDIGO ============ -->
@@ -317,6 +444,42 @@
       </span>
     </div>
 
+    <!-- ============ MÚSICA ============ -->
+    <p class="section-label">Música</p>
+    <section class="player" id="player" aria-label="Reproductor de música">
+      <div class="pl-now">
+        <div class="pl-art" id="plArt" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>
+        </div>
+        <div class="pl-meta">
+          <div class="pl-kicker">Reproduciendo</div>
+          <div class="pl-title" id="plTitle">Selecciona una pista</div>
+          <div class="pl-album" id="plAlbum">—</div>
+        </div>
+      </div>
+
+      <div class="pl-progress">
+        <div class="pl-bar" id="plBar" role="slider" aria-label="Progreso" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="pl-fill" id="plFill"></div>
+        </div>
+        <div class="pl-times"><span id="plCur">0:00</span><span id="plDur">0:00</span></div>
+      </div>
+
+      <div class="pl-controls">
+        <button class="pl-btn side" id="plPrev" aria-label="Anterior" type="button">
+          <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+        </button>
+        <button class="pl-btn play" id="plPlay" aria-label="Reproducir" type="button">
+          <svg id="plPlayIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <button class="pl-btn side" id="plNext" aria-label="Siguiente" type="button">
+          <svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zM6 18l8.5-6L6 6z"/></svg>
+        </button>
+      </div>
+
+      <div class="pl-list" id="plList"></div>
+    </section>
+
     <!-- ============ CONTACTO ============ -->
     <p class="section-label">Contacto</p>
     <nav class="links">
@@ -346,6 +509,162 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ===== Reproductor de música =====
+       Para añadir/editar pistas: edita este arreglo.
+       - src:     archivo en assets/music/ (mp3/m4a/ogg)
+       - cover:   imagen opcional (assets/music/…) — si falta, se usa el ícono
+       - youtube: enlace opcional; muestra botón "Ver video"            */
+    const TRACKS = [
+      {
+        title: "Maat encarnada",
+        album: "Sencillo",
+        src: "assets/music/maat-encarnada.mp3",
+        cover: null,
+        youtube: "https://youtu.be/tdBA3uNvqfE"
+      },
+      {
+        title: "Maat encarnada II",
+        album: "Sencillo",
+        src: "assets/music/maat-encarnada-2.mp3",
+        cover: null,
+        youtube: null
+      },
+      { title: "La Barca", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 1", src: "assets/music/los-ponchos/1-01-la-barca.mp3" },
+      { title: "Odiame", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 1", src: "assets/music/los-ponchos/1-02-odiame.mp3" },
+      { title: "El Rey Azul", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 1", src: "assets/music/los-ponchos/1-03-el-rey-azul.mp3" },
+      { title: "Dos Gardenias", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 1", src: "assets/music/los-ponchos/1-04-dos-gardenias.mp3" },
+      { title: "Almohada", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 1", src: "assets/music/los-ponchos/1-05-almohada.mp3" },
+      { title: "Alma Corazón y Vida", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 1", src: "assets/music/los-ponchos/1-06-alma-corazon-y-vida.mp3" },
+      { title: "Panchos 1", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 1", src: "assets/music/los-ponchos/1-07-panchos-1.mp3" },
+      { title: "Inolvidable", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 1", src: "assets/music/los-ponchos/1-08-inolvidable.mp3" },
+      { title: "Panchos 2", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 1", src: "assets/music/los-ponchos/1-09-panchos-2.mp3" },
+      { title: "Nuestro Juramento", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 1", src: "assets/music/los-ponchos/1-10-nuestro-juramento.mp3" },
+      { title: "Algo Contigo", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 2", src: "assets/music/los-ponchos/2-01-algo-contigo.mp3" },
+      { title: "Cuerpo sin Alma", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 2", src: "assets/music/los-ponchos/2-02-cuerpo-sin-alma.mp3" },
+      { title: "Madrigal", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 2", src: "assets/music/los-ponchos/2-03-madrigal.mp3" },
+      { title: "Morenita", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 2", src: "assets/music/los-ponchos/2-04-morenita.mp3" },
+      { title: "No", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 2", src: "assets/music/los-ponchos/2-05-no.mp3" },
+      { title: "Ojalá", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 2", src: "assets/music/los-ponchos/2-06-ojala.mp3" },
+      { title: "Ojalá que te mueras", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 2", src: "assets/music/los-ponchos/2-07-ojala-que-te-mueras.mp3" },
+      { title: "Penélope", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 2", src: "assets/music/los-ponchos/2-08-penelope.mp3" },
+      { title: "Por Ti", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 2", src: "assets/music/los-ponchos/2-09-por-ti.mp3" },
+      { title: "Por ti lo siento", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 2", src: "assets/music/los-ponchos/2-10-por-ti-lo-siento.mp3" },
+      { title: "Huapago y La Fiesta (Bonnus Track)", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 2", src: "assets/music/los-ponchos/2-11-huapago-y-la-fiesta-bonnus-track.mp3" }
+    ];
+
+    (function () {
+      const audio = new Audio();
+      audio.preload = "metadata";
+      let current = -1;
+
+      const el = id => document.getElementById(id);
+      const listEl = el('plList');
+      const titleEl = el('plTitle'), albumEl = el('plAlbum'), artEl = el('plArt');
+      const fillEl = el('plFill'), barEl = el('plBar');
+      const curEl = el('plCur'), durEl = el('plDur');
+      const playBtn = el('plPlay'), playIcon = el('plPlayIcon');
+
+      const ICON_PLAY = '<path d="M8 5v14l11-7z"/>';
+      const ICON_PAUSE = '<path d="M6 5h4v14H6zm8 0h4v14h-4z"/>';
+      const YT_SVG = '<svg viewBox="0 0 24 24"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.5A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.5a2.5 2.5 0 0 0 1.8-1.8C23 15.2 23 12 23 12zM9.8 15.3V8.7l5.7 3.3z"/></svg>';
+
+      const fmt = s => {
+        if (!isFinite(s)) return "0:00";
+        const m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ":" + String(sec).padStart(2, "0");
+      };
+
+      // Construir la lista
+      TRACKS.forEach((t, i) => {
+        const row = document.createElement('button');
+        row.type = 'button';
+        row.className = 'pl-track';
+        row.dataset.i = i;
+        row.innerHTML =
+          '<span class="pl-tnum"><span class="n">' + (i + 1) + '</span>' +
+          '<span class="eq"><i></i><i></i><i></i></span></span>' +
+          '<span class="pl-tinfo"><span class="pl-tname"></span>' +
+          '<span class="pl-talbum"></span></span>';
+        row.querySelector('.pl-tname').textContent = t.title;
+        row.querySelector('.pl-talbum').textContent = t.album || '';
+        if (t.youtube) {
+          const yt = document.createElement('a');
+          yt.className = 'pl-yt';
+          yt.href = t.youtube;
+          yt.target = '_blank';
+          yt.rel = 'noopener';
+          yt.title = 'Ver video en YouTube';
+          yt.setAttribute('aria-label', 'Ver "' + t.title + '" en YouTube');
+          yt.innerHTML = YT_SVG;
+          yt.addEventListener('click', e => e.stopPropagation());
+          row.appendChild(yt);
+        }
+        row.addEventListener('click', () => { current === i ? toggle() : load(i, true); });
+        listEl.appendChild(row);
+      });
+
+      function highlight() {
+        [...listEl.children].forEach((r, i) => r.classList.toggle('active', i === current));
+      }
+
+      function setArt(t) {
+        if (t.cover) {
+          artEl.innerHTML = '<img src="' + t.cover + '" alt="">';
+        } else {
+          artEl.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>';
+        }
+      }
+
+      function load(i, play) {
+        current = i;
+        const t = TRACKS[i];
+        audio.src = t.src;
+        titleEl.textContent = t.title;
+        albumEl.textContent = t.album || '—';
+        setArt(t);
+        highlight();
+        if (play) audio.play().catch(() => {});
+      }
+
+      function toggle() {
+        if (current < 0) return load(0, true);
+        audio.paused ? audio.play().catch(() => {}) : audio.pause();
+      }
+
+      playBtn.addEventListener('click', toggle);
+      el('plPrev').addEventListener('click', () => load((current - 1 + TRACKS.length) % TRACKS.length, true));
+      el('plNext').addEventListener('click', () => load((current + 1) % TRACKS.length, true));
+
+      audio.addEventListener('play', () => {
+        playIcon.innerHTML = ICON_PAUSE;
+        playBtn.setAttribute('aria-label', 'Pausar');
+      });
+      audio.addEventListener('pause', () => {
+        playIcon.innerHTML = ICON_PLAY;
+        playBtn.setAttribute('aria-label', 'Reproducir');
+      });
+      audio.addEventListener('loadedmetadata', () => durEl.textContent = fmt(audio.duration));
+      audio.addEventListener('timeupdate', () => {
+        const pct = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
+        fillEl.style.width = pct + '%';
+        curEl.textContent = fmt(audio.currentTime);
+        barEl.setAttribute('aria-valuenow', Math.round(pct));
+      });
+      audio.addEventListener('ended', () => load((current + 1) % TRACKS.length, true));
+
+      function seek(clientX) {
+        const r = barEl.getBoundingClientRect();
+        const pct = Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+        if (audio.duration) audio.currentTime = pct * audio.duration;
+      }
+      barEl.addEventListener('click', e => seek(e.clientX));
+      barEl.addEventListener('keydown', e => {
+        if (!audio.duration) return;
+        if (e.key === 'ArrowRight') audio.currentTime = Math.min(audio.duration, audio.currentTime + 5);
+        if (e.key === 'ArrowLeft') audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+    })();
   </script>
 </body>
 </html>
