@@ -341,6 +341,32 @@
     .pl-yt:hover { background: rgba(227,6,19,.18); }
     .pl-yt svg { width: 17px; height: 17px; fill: currentColor; }
 
+    /* Encabezado de álbum dentro del reproductor */
+    .pl-ahead {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 18px;
+      border-top: 1px solid var(--border);
+      background: var(--bg-soft);
+    }
+    .pl-ahead:first-child { border-top: none; }
+    .pl-ah-cover {
+      flex: 0 0 auto; width: 46px; height: 46px;
+      border-radius: 9px; overflow: hidden;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, rgba(29,113,184,.20), rgba(255,222,0,.18));
+      color: var(--blue);
+      box-shadow: 0 2px 8px rgba(0,0,0,.18);
+    }
+    .pl-ah-cover img { width: 100%; height: 100%; object-fit: cover; }
+    .pl-ah-cover svg { width: 22px; height: 22px; }
+    .pl-ah-info { flex: 1 1 auto; min-width: 0; }
+    .pl-ah-title { font-weight: 700; font-size: .92rem; line-height: 1.2; }
+    .pl-ah-meta { font-size: .72rem; color: var(--muted); }
+    .pl-ah-count {
+      flex: 0 0 auto; font-size: .68rem; color: var(--muted);
+      font-variant-numeric: tabular-nums; white-space: nowrap;
+    }
+
     /* Footer */
     footer {
       margin-top: 44px;
@@ -510,52 +536,80 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    /* ===== Reproductor de música =====
-       Para añadir/editar pistas: edita este arreglo.
-       - src:     archivo en assets/music/ (mp3/m4a/ogg)
-       - cover:   imagen opcional (assets/music/…) — si falta, se usa el ícono
-       - youtube: enlace opcional; muestra botón "Ver video"            */
-    const TRACKS = [
+    /* ===== Reproductor de música — organizado por álbumes =====
+       Para añadir/editar: edita ALBUMS.
+       - cover:   portada del álbum en assets/music/covers/ — si falta, usa ícono
+       - youtube: enlace opcional por pista; muestra botón "Ver video"          */
+    const ALBUMS = [
       {
         title: "Maat encarnada",
-        album: "Sencillo",
-        src: "assets/music/maat-encarnada.mp3",
-        cover: null,
-        youtube: "https://youtu.be/tdBA3uNvqfE"
+        meta: "Sencillo · original",
+        cover: "assets/music/covers/maat.jpg",
+        tracks: [
+          { title: "Maat encarnada", src: "assets/music/maat-encarnada.mp3", youtube: "https://youtu.be/tdBA3uNvqfE" }
+        ]
       },
       {
-        title: "Maat encarnada II",
-        album: "Sencillo",
-        src: "assets/music/maat-encarnada-2.mp3",
-        cover: null,
-        youtube: null
+        title: "Los Ponchos · Plus Ultra, Vol. 1",
+        meta: "Boleros · arreglos de Carlos Romero",
+        cover: "assets/music/covers/los-ponchos-vol1.jpg",
+        tracks: [
+          { title: "La Barca", src: "assets/music/los-ponchos/1-01-la-barca.mp3" },
+          { title: "Odiame", src: "assets/music/los-ponchos/1-02-odiame.mp3" },
+          { title: "El Rey Azul", src: "assets/music/los-ponchos/1-03-el-rey-azul.mp3" },
+          { title: "Dos Gardenias", src: "assets/music/los-ponchos/1-04-dos-gardenias.mp3" },
+          { title: "Almohada", src: "assets/music/los-ponchos/1-05-almohada.mp3" },
+          { title: "Alma Corazón y Vida", src: "assets/music/los-ponchos/1-06-alma-corazon-y-vida.mp3" },
+          { title: "Panchos 1", src: "assets/music/los-ponchos/1-07-panchos-1.mp3" },
+          { title: "Inolvidable", src: "assets/music/los-ponchos/1-08-inolvidable.mp3" },
+          { title: "Panchos 2", src: "assets/music/los-ponchos/1-09-panchos-2.mp3" },
+          { title: "Nuestro Juramento", src: "assets/music/los-ponchos/1-10-nuestro-juramento.mp3" }
+        ]
       },
-      { title: "La Barca", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 1", src: "assets/music/los-ponchos/1-01-la-barca.mp3" },
-      { title: "Odiame", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 1", src: "assets/music/los-ponchos/1-02-odiame.mp3" },
-      { title: "El Rey Azul", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 1", src: "assets/music/los-ponchos/1-03-el-rey-azul.mp3" },
-      { title: "Dos Gardenias", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 1", src: "assets/music/los-ponchos/1-04-dos-gardenias.mp3" },
-      { title: "Almohada", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 1", src: "assets/music/los-ponchos/1-05-almohada.mp3" },
-      { title: "Alma Corazón y Vida", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 1", src: "assets/music/los-ponchos/1-06-alma-corazon-y-vida.mp3" },
-      { title: "Panchos 1", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 1", src: "assets/music/los-ponchos/1-07-panchos-1.mp3" },
-      { title: "Inolvidable", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 1", src: "assets/music/los-ponchos/1-08-inolvidable.mp3" },
-      { title: "Panchos 2", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 1", src: "assets/music/los-ponchos/1-09-panchos-2.mp3" },
-      { title: "Nuestro Juramento", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 1", src: "assets/music/los-ponchos/1-10-nuestro-juramento.mp3" },
-      { title: "Algo Contigo", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 2", src: "assets/music/los-ponchos/2-01-algo-contigo.mp3" },
-      { title: "Cuerpo sin Alma", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 2", src: "assets/music/los-ponchos/2-02-cuerpo-sin-alma.mp3" },
-      { title: "Madrigal", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 2", src: "assets/music/los-ponchos/2-03-madrigal.mp3" },
-      { title: "Morenita", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 2", src: "assets/music/los-ponchos/2-04-morenita.mp3" },
-      { title: "No", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 2", src: "assets/music/los-ponchos/2-05-no.mp3" },
-      { title: "Ojalá", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 2", src: "assets/music/los-ponchos/2-06-ojala.mp3" },
-      { title: "Ojalá que te mueras", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 2", src: "assets/music/los-ponchos/2-07-ojala-que-te-mueras.mp3" },
-      { title: "Penélope", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 2", src: "assets/music/los-ponchos/2-08-penelope.mp3" },
-      { title: "Por Ti", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 2", src: "assets/music/los-ponchos/2-09-por-ti.mp3" },
-      { title: "Por ti lo siento", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 2", src: "assets/music/los-ponchos/2-10-por-ti-lo-siento.mp3" },
-      { title: "Huapago y La Fiesta (Bonnus Track)", album: "Los Ponchos · Recopilación Plus Ultra, Vol. 2", src: "assets/music/los-ponchos/2-11-huapago-y-la-fiesta-bonnus-track.mp3" }
+      {
+        title: "Los Ponchos · Plus Ultra, Vol. 2",
+        meta: "Boleros · arreglos de Carlos Romero",
+        cover: "assets/music/covers/los-ponchos-vol2.jpg",
+        tracks: [
+          { title: "Algo Contigo", src: "assets/music/los-ponchos/2-01-algo-contigo.mp3" },
+          { title: "Cuerpo sin Alma", src: "assets/music/los-ponchos/2-02-cuerpo-sin-alma.mp3" },
+          { title: "Madrigal", src: "assets/music/los-ponchos/2-03-madrigal.mp3" },
+          { title: "Morenita", src: "assets/music/los-ponchos/2-04-morenita.mp3" },
+          { title: "No", src: "assets/music/los-ponchos/2-05-no.mp3" },
+          { title: "Ojalá", src: "assets/music/los-ponchos/2-06-ojala.mp3" },
+          { title: "Ojalá que te mueras", src: "assets/music/los-ponchos/2-07-ojala-que-te-mueras.mp3" },
+          { title: "Penélope", src: "assets/music/los-ponchos/2-08-penelope.mp3" },
+          { title: "Por Ti", src: "assets/music/los-ponchos/2-09-por-ti.mp3" },
+          { title: "Por ti lo siento", src: "assets/music/los-ponchos/2-10-por-ti-lo-siento.mp3" },
+          { title: "Huapango y La Fiesta (Bonus Track)", src: "assets/music/los-ponchos/2-11-huapago-y-la-fiesta-bonnus-track.mp3" }
+        ]
+      },
+      {
+        title: "Amor Pirata",
+        meta: "Boleros · arreglos de Carlos Romero",
+        cover: "assets/music/covers/amor-pirata.jpg",
+        // TODO: renombra "Pista N" con los títulos reales cuando los tengas
+        tracks: [
+          { title: "Pista 1", src: "assets/music/amor-pirata/amor-pirata-01.mp3" },
+          { title: "Pista 2", src: "assets/music/amor-pirata/amor-pirata-02.mp3" },
+          { title: "Pista 3", src: "assets/music/amor-pirata/amor-pirata-03.mp3" },
+          { title: "Pista 4", src: "assets/music/amor-pirata/amor-pirata-04.mp3" },
+          { title: "Pista 5", src: "assets/music/amor-pirata/amor-pirata-05.mp3" },
+          { title: "Pista 6", src: "assets/music/amor-pirata/amor-pirata-06.mp3" },
+          { title: "Pista 7", src: "assets/music/amor-pirata/amor-pirata-07.mp3" },
+          { title: "Pista 8", src: "assets/music/amor-pirata/amor-pirata-08.mp3" },
+          { title: "Pista 9", src: "assets/music/amor-pirata/amor-pirata-09.mp3" }
+        ]
+      }
     ];
 
     (function () {
       const audio = new Audio();
       audio.preload = "metadata";
+
+      // Cola continua a partir de los álbumes (cada pista recuerda su álbum)
+      const QUEUE = [];
+      ALBUMS.forEach(al => al.tracks.forEach(t => QUEUE.push({ t, al })));
       let current = -1;
 
       const el = id => document.getElementById(id);
@@ -564,9 +618,11 @@
       const fillEl = el('plFill'), barEl = el('plBar');
       const curEl = el('plCur'), durEl = el('plDur');
       const playBtn = el('plPlay'), playIcon = el('plPlayIcon');
+      const rowEls = [];
 
       const ICON_PLAY = '<path d="M8 5v14l11-7z"/>';
       const ICON_PAUSE = '<path d="M6 5h4v14H6zm8 0h4v14h-4z"/>';
+      const ICON_NOTE = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>';
       const YT_SVG = '<svg viewBox="0 0 24 24"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.5A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.5a2.5 2.5 0 0 0 1.8-1.8C23 15.2 23 12 23 12zM9.8 15.3V8.7l5.7 3.3z"/></svg>';
 
       const fmt = s => {
@@ -575,54 +631,72 @@
         return m + ":" + String(sec).padStart(2, "0");
       };
 
-      // Construir la lista
-      TRACKS.forEach((t, i) => {
-        const row = document.createElement('button');
-        row.type = 'button';
-        row.className = 'pl-track';
-        row.dataset.i = i;
-        row.innerHTML =
-          '<span class="pl-tnum"><span class="n">' + (i + 1) + '</span>' +
-          '<span class="eq"><i></i><i></i><i></i></span></span>' +
-          '<span class="pl-tinfo"><span class="pl-tname"></span>' +
-          '<span class="pl-talbum"></span></span>';
-        row.querySelector('.pl-tname').textContent = t.title;
-        row.querySelector('.pl-talbum').textContent = t.album || '';
-        if (t.youtube) {
-          const yt = document.createElement('a');
-          yt.className = 'pl-yt';
-          yt.href = t.youtube;
-          yt.target = '_blank';
-          yt.rel = 'noopener';
-          yt.title = 'Ver video en YouTube';
-          yt.setAttribute('aria-label', 'Ver "' + t.title + '" en YouTube');
-          yt.innerHTML = YT_SVG;
-          yt.addEventListener('click', e => e.stopPropagation());
-          row.appendChild(yt);
-        }
-        row.addEventListener('click', () => { current === i ? toggle() : load(i, true); });
-        listEl.appendChild(row);
+      // Pinta una portada; si la imagen no existe, cae al ícono de nota
+      function paintCover(box, cover) {
+        if (!cover) { box.innerHTML = ICON_NOTE; return; }
+        const img = new Image();
+        img.alt = "";
+        img.onerror = () => { box.innerHTML = ICON_NOTE; };
+        box.innerHTML = "";
+        box.appendChild(img);
+        img.src = cover;
+      }
+
+      // Construir la lista agrupada por álbum
+      let qi = 0;
+      ALBUMS.forEach(al => {
+        const head = document.createElement('div');
+        head.className = 'pl-ahead';
+        head.innerHTML =
+          '<span class="pl-ah-cover"></span>' +
+          '<span class="pl-ah-info"><span class="pl-ah-title"></span>' +
+          '<span class="pl-ah-meta"></span></span>' +
+          '<span class="pl-ah-count">' + al.tracks.length +
+          (al.tracks.length === 1 ? ' pista' : ' pistas') + '</span>';
+        head.querySelector('.pl-ah-title').textContent = al.title;
+        head.querySelector('.pl-ah-meta').textContent = al.meta || '';
+        paintCover(head.querySelector('.pl-ah-cover'), al.cover);
+        listEl.appendChild(head);
+
+        al.tracks.forEach((t, j) => {
+          const idx = qi++;
+          const row = document.createElement('button');
+          row.type = 'button';
+          row.className = 'pl-track';
+          row.innerHTML =
+            '<span class="pl-tnum"><span class="n">' + (j + 1) + '</span>' +
+            '<span class="eq"><i></i><i></i><i></i></span></span>' +
+            '<span class="pl-tinfo"><span class="pl-tname"></span></span>';
+          row.querySelector('.pl-tname').textContent = t.title;
+          if (t.youtube) {
+            const yt = document.createElement('a');
+            yt.className = 'pl-yt';
+            yt.href = t.youtube;
+            yt.target = '_blank';
+            yt.rel = 'noopener';
+            yt.title = 'Ver video en YouTube';
+            yt.setAttribute('aria-label', 'Ver "' + t.title + '" en YouTube');
+            yt.innerHTML = YT_SVG;
+            yt.addEventListener('click', e => e.stopPropagation());
+            row.appendChild(yt);
+          }
+          row.addEventListener('click', () => { current === idx ? toggle() : load(idx, true); });
+          listEl.appendChild(row);
+          rowEls.push(row);
+        });
       });
 
       function highlight() {
-        [...listEl.children].forEach((r, i) => r.classList.toggle('active', i === current));
-      }
-
-      function setArt(t) {
-        if (t.cover) {
-          artEl.innerHTML = '<img src="' + t.cover + '" alt="">';
-        } else {
-          artEl.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>';
-        }
+        rowEls.forEach((r, i) => r.classList.toggle('active', i === current));
       }
 
       function load(i, play) {
         current = i;
-        const t = TRACKS[i];
+        const { t, al } = QUEUE[i];
         audio.src = t.src;
         titleEl.textContent = t.title;
-        albumEl.textContent = t.album || '—';
-        setArt(t);
+        albumEl.textContent = al.title;
+        paintCover(artEl, al.cover);
         highlight();
         if (play) audio.play().catch(() => {});
       }
@@ -633,8 +707,8 @@
       }
 
       playBtn.addEventListener('click', toggle);
-      el('plPrev').addEventListener('click', () => load((current - 1 + TRACKS.length) % TRACKS.length, true));
-      el('plNext').addEventListener('click', () => load((current + 1) % TRACKS.length, true));
+      el('plPrev').addEventListener('click', () => load((current - 1 + QUEUE.length) % QUEUE.length, true));
+      el('plNext').addEventListener('click', () => load((current + 1) % QUEUE.length, true));
 
       audio.addEventListener('play', () => {
         playIcon.innerHTML = ICON_PAUSE;
@@ -651,7 +725,7 @@
         curEl.textContent = fmt(audio.currentTime);
         barEl.setAttribute('aria-valuenow', Math.round(pct));
       });
-      audio.addEventListener('ended', () => load((current + 1) % TRACKS.length, true));
+      audio.addEventListener('ended', () => load((current + 1) % QUEUE.length, true));
 
       function seek(clientX) {
         const r = barEl.getBoundingClientRect();
