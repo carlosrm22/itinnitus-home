@@ -343,17 +343,33 @@
 
     /* Encabezado de álbum dentro del reproductor (colapsable) */
     .pl-ahead {
-      display: flex; align-items: center; gap: 12px;
+      display: flex; align-items: center; gap: 10px;
       width: 100%;
-      padding: 12px 18px;
-      border: none; border-top: 1px solid var(--border);
+      padding: 10px 14px 10px 18px;
+      border-top: 1px solid var(--border);
       background: var(--bg-soft);
-      color: var(--text); font: inherit; text-align: left;
-      cursor: pointer;
       transition: background .12s ease;
     }
     .pl-ahead:first-child { border-top: none; }
     .pl-ahead:hover { background: rgba(29,113,184,.06); }
+    .pl-ah-main {
+      flex: 1 1 auto; min-width: 0;
+      display: flex; align-items: center; gap: 12px;
+      padding: 0; border: none; background: none;
+      color: var(--text); font: inherit; text-align: left; cursor: pointer;
+    }
+    .pl-ah-main:hover .pl-ah-title { color: var(--blue); }
+    .pl-ah-play {
+      flex: 0 0 auto;
+      width: 40px; height: 40px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: var(--blue); color: #fff; border: none; cursor: pointer;
+      box-shadow: 0 2px 8px rgba(29,113,184,.30);
+      transition: transform .12s ease, filter .12s ease;
+    }
+    .pl-ah-play:hover { filter: brightness(1.08); transform: translateY(-1px); }
+    .pl-ah-play:active { transform: scale(.94); }
+    .pl-ah-play svg { width: 18px; height: 18px; fill: #fff; }
     .pl-ah-cover {
       flex: 0 0 auto; width: 46px; height: 46px;
       border-radius: 9px; overflow: hidden;
@@ -674,32 +690,49 @@
         img.src = cover;
       }
 
-      // Construir la lista agrupada por álbum (cada álbum se colapsa/expande)
+      // Construir la lista agrupada por álbum (colapsable + botón reproducir álbum)
       const qWrap = [];
       let qi = 0;
       ALBUMS.forEach((al, ai) => {
-        const head = document.createElement('button');
-        head.type = 'button';
+        const startIdx = qi;
+        const count = al.tracks.length + (al.tracks.length === 1 ? ' pista' : ' pistas');
+
+        const head = document.createElement('div');
         head.className = 'pl-ahead' + (ai === 0 ? ' open' : '');
-        head.setAttribute('aria-expanded', ai === 0 ? 'true' : 'false');
-        head.innerHTML =
+
+        // Cuerpo (portada + info): despliega/colapsa
+        const main = document.createElement('button');
+        main.type = 'button';
+        main.className = 'pl-ah-main';
+        main.setAttribute('aria-expanded', ai === 0 ? 'true' : 'false');
+        main.innerHTML =
           '<span class="pl-ah-cover"></span>' +
           '<span class="pl-ah-info"><span class="pl-ah-title"></span>' +
           '<span class="pl-ah-meta"></span></span>' +
-          '<span class="pl-ah-count">' + al.tracks.length +
-          (al.tracks.length === 1 ? ' pista' : ' pistas') + '</span>' +
           '<span class="pl-ah-toggle" aria-hidden="true">▸</span>';
-        head.querySelector('.pl-ah-title').textContent = al.title;
-        head.querySelector('.pl-ah-meta').textContent = al.meta || '';
-        paintCover(head.querySelector('.pl-ah-cover'), al.cover);
+        main.querySelector('.pl-ah-title').textContent = al.title;
+        main.querySelector('.pl-ah-meta').textContent = (al.meta ? al.meta + ' · ' : '') + count;
+        paintCover(main.querySelector('.pl-ah-cover'), al.cover);
+
+        // Botón reproducir álbum: arranca desde la 1.ª pista
+        const playAl = document.createElement('button');
+        playAl.type = 'button';
+        playAl.className = 'pl-ah-play';
+        playAl.title = 'Reproducir álbum';
+        playAl.setAttribute('aria-label', 'Reproducir ' + al.title);
+        playAl.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+        playAl.addEventListener('click', () => load(startIdx, true));
 
         const wrap = document.createElement('div');
         wrap.className = 'pl-atracks' + (ai === 0 ? '' : ' collapsed');
-        head.addEventListener('click', () => {
+        main.addEventListener('click', () => {
           const collapsed = wrap.classList.toggle('collapsed');
           head.classList.toggle('open', !collapsed);
-          head.setAttribute('aria-expanded', String(!collapsed));
+          main.setAttribute('aria-expanded', String(!collapsed));
         });
+
+        head.appendChild(main);
+        head.appendChild(playAl);
 
         al.tracks.forEach((t, j) => {
           const idx = qi++;
@@ -726,7 +759,7 @@
           row.addEventListener('click', () => { current === idx ? toggle() : load(idx, true); });
           wrap.appendChild(row);
           rowEls.push(row);
-          qWrap.push({ head, wrap });
+          qWrap.push({ head, wrap, main });
         });
 
         listEl.appendChild(head);
@@ -753,7 +786,7 @@
         if (w) {
           w.wrap.classList.remove('collapsed');
           w.head.classList.add('open');
-          w.head.setAttribute('aria-expanded', 'true');
+          w.main.setAttribute('aria-expanded', 'true');
         }
         if (play) audio.play().catch(() => {});
       }
