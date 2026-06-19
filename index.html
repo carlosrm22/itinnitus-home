@@ -5,14 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>itinnitus · Carlos Alfonso Romero Muñoz</title>
   <meta name="description" content="Enlaces de Carlos Alfonso Romero Muñoz: proyectos en GitHub y libros publicados en Amazon." />
-  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  <link rel="icon" type="image/png" sizes="256x256" href="assets/favicon.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png" />
+  <link rel="apple-touch-icon" href="assets/favicon.png" />
 
   <!-- Open Graph / redes sociales -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="itinnitus · Carlos Alfonso Romero Muñoz" />
   <meta property="og:description" content="Proyectos en GitHub y libros publicados en Amazon." />
   <meta property="og:url" content="https://itinnitus.com" />
-  <meta property="og:image" content="https://itinnitus.com/assets/logo.svg" />
+  <meta property="og:image" content="https://itinnitus.com/assets/carlos.jpg" />
   <meta name="twitter:card" content="summary" />
 
   <style>
@@ -137,70 +139,80 @@
     .accent-red .icon    { background: rgba(227,6,19,.12);  color: var(--red); }
     .accent-yellow .icon { background: rgba(255,222,0,.18); color: #b58a00; }
 
-    /* Estantería de libros */
+    /* Libros: tarjetas con portada grande + reseña */
     .sub-label {
       font-size: .8rem;
       font-weight: 700;
       color: var(--text);
-      margin: 22px 4px 12px;
+      margin: 24px 4px 12px;
     }
-    .shelf {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px 14px;
+    .booklist { display: grid; gap: 12px; }
+    .bookcard {
+      display: flex;
+      gap: 16px;
+      padding: 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      color: var(--text);
+      text-decoration: none;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
     }
-    .book {
+    a.bookcard:hover, a.bookcard:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--blue);
+      box-shadow: 0 12px 28px rgba(29,113,184,.16);
+      outline: none;
+    }
+    a.bookcard:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+    .bc-cover {
+      flex: 0 0 auto;
+      position: relative;
+      width: 104px;
+      aspect-ratio: 5 / 8;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 3px 12px rgba(0,0,0,.28);
+    }
+    .bc-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .bc-body {
+      flex: 1 1 auto;
+      min-width: 0;
+      align-self: center;
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      text-decoration: none;
-      color: var(--text);
+      gap: 5px;
     }
-    .book .cover {
-      position: relative;
-      aspect-ratio: 5 / 8;
-      border-radius: 10px;
-      overflow: hidden;
-      background: var(--bg-soft);
-      box-shadow: var(--shadow);
-      transition: transform .15s ease, box-shadow .15s ease;
+    .bc-meta {
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      font-weight: 700;
+      color: var(--blue);
     }
-    .book .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .book:hover .cover, .book:focus-visible .cover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(16,24,40,.2);
-    }
-    .book:focus-visible { outline: none; }
-    .book:focus-visible .cover { outline: 2px solid var(--blue); outline-offset: 2px; }
-    .book .bt { font-size: .82rem; font-weight: 600; line-height: 1.25; }
-    .book .bs { font-size: .72rem; color: var(--muted); }
+    .bc-title { font-size: 1.05rem; font-weight: 700; line-height: 1.2; }
+    .bc-desc { font-size: .85rem; color: var(--muted); line-height: 1.42; }
+    .bc-cta { font-size: .8rem; font-weight: 600; color: var(--blue); margin-top: 2px; }
+    a.bookcard:hover .bc-cta { text-decoration: underline; }
 
-    /* Tarjetas "Próximamente" (portada real + insignia) */
-    .book.soon { cursor: default; }
-    .book.soon .cover img { opacity: .96; }
-    .book.soon .bt { color: var(--muted); }
+    /* "Próximamente": etiqueta sólida (sin transparencia) sobre portada negra */
+    .bookcard.soon { cursor: default; }
+    .bookcard.soon .bc-meta { color: var(--muted); }
     .badge {
       position: absolute;
       top: 8px; left: 8px;
-      font-size: .6rem;
-      font-weight: 700;
-      letter-spacing: .08em;
+      font-size: .56rem;
+      font-weight: 800;
+      letter-spacing: .05em;
       text-transform: uppercase;
       color: #1a1207;
-      background: var(--yellow);
-      padding: 3px 7px;
-      border-radius: 999px;
-    }
-
-    /* Tarjeta horizontal con portada (narrativa) */
-    .link .thumb {
-      flex: 0 0 auto;
-      width: 44px; height: 70px;
+      background: #f2c200;
+      padding: 4px 8px;
       border-radius: 6px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(16,24,40,.18);
+      box-shadow: 0 1px 5px rgba(0,0,0,.55);
     }
-    .link .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     /* Footer */
     footer {
@@ -239,48 +251,69 @@
     <p class="section-label">Libros</p>
 
     <p class="sub-label">Narrativa</p>
-    <nav class="links">
-      <a class="link" href="https://www.amazon.com.mx/dp/B0GZJWL5MR" target="_blank" rel="noopener">
-        <span class="thumb"><img src="assets/books/ain-sof.jpg" alt="Portada de Carne ajena: AIN SOF" loading="lazy" /></span>
-        <span class="body">
-          <span class="title">Carne ajena: AIN SOF</span>
-          <span class="sub">El evangelio del demiurgo que nació hacia atrás</span>
+    <div class="booklist">
+      <a class="bookcard" href="https://www.amazon.com.mx/dp/B0GZJWL5MR" target="_blank" rel="noopener">
+        <span class="bc-cover"><img src="assets/books/ain-sof.jpg" alt="Portada de AIN SOF" loading="lazy" /></span>
+        <span class="bc-body">
+          <span class="bc-meta">Novela</span>
+          <span class="bc-title">AIN SOF</span>
+          <span class="bc-desc">Una novela corta sobre cábala, modelos de lenguaje y la sospecha de que el Demiurgo no está siendo creado: está recordándose desde el futuro hacia el presente.</span>
+          <span class="bc-cta">Ver en Amazon →</span>
         </span>
-        <span class="chev" aria-hidden="true">→</span>
       </a>
-    </nav>
+    </div>
 
     <p class="sub-label">Biblioteca Hermética</p>
-    <div class="shelf">
-      <a class="book" href="https://www.amazon.com.mx/dp/B0GX3GP1FY" target="_blank" rel="noopener">
-        <span class="cover"><img src="assets/books/hermetismo-lucido.jpg" alt="Portada de Hermetismo lúcido" loading="lazy" /></span>
-        <span class="bt">Hermetismo lúcido</span>
-        <span class="bs">Vol. I</span>
+    <div class="booklist">
+      <a class="bookcard" href="https://www.amazon.com.mx/dp/B0GX3GP1FY" target="_blank" rel="noopener">
+        <span class="bc-cover"><img src="assets/books/hermetismo-lucido.jpg" alt="Portada de Hermetismo lúcido" loading="lazy" /></span>
+        <span class="bc-body">
+          <span class="bc-meta">Vol. I</span>
+          <span class="bc-title">Hermetismo lúcido</span>
+          <span class="bc-desc">Guía de estudio esotérico para quien ama el misterio y desconfía de las certezas fáciles. Desconfiar del humo sin apagar el incienso.</span>
+          <span class="bc-cta">Ver en Amazon →</span>
+        </span>
       </a>
-      <a class="book" href="https://www.amazon.com.mx/dp/B0H2Q85HPP" target="_blank" rel="noopener">
-        <span class="cover"><img src="assets/books/tarot-lucido.jpg" alt="Portada de Tarot lúcido" loading="lazy" /></span>
-        <span class="bt">Tarot lúcido</span>
-        <span class="bs">Vol. II</span>
+      <a class="bookcard" href="https://www.amazon.com.mx/dp/B0H2Q85HPP" target="_blank" rel="noopener">
+        <span class="bc-cover"><img src="assets/books/tarot-lucido.jpg" alt="Portada de Tarot lúcido" loading="lazy" /></span>
+        <span class="bc-body">
+          <span class="bc-meta">Vol. II</span>
+          <span class="bc-title">Tarot lúcido</span>
+          <span class="bc-desc">Guía crítica del tarot como lenguaje simbólico, no como oráculo. La gramática Golden Dawn explicada con lucidez.</span>
+          <span class="bc-cta">Ver en Amazon →</span>
+        </span>
       </a>
-      <span class="book soon" aria-label="Cábala hermética lúcida, próximamente">
-        <span class="cover"><span class="badge">Próximamente</span><img src="assets/books/cabala-lucida.jpg" alt="Portada de Cábala hermética lúcida" loading="lazy" /></span>
-        <span class="bt">Cábala hermética lúcida</span>
-        <span class="bs">Vol. III</span>
+      <span class="bookcard soon" aria-label="Cábala hermética lúcida, próximamente">
+        <span class="bc-cover"><span class="badge">Próximamente</span><img src="assets/books/cabala-lucida.jpg" alt="Portada de Cábala hermética lúcida" loading="lazy" /></span>
+        <span class="bc-body">
+          <span class="bc-meta">Vol. III · Próximamente</span>
+          <span class="bc-title">Cábala hermética lúcida</span>
+          <span class="bc-desc">El sistema de las sefirot y las correspondencias, leído como gramática simbólica.</span>
+        </span>
       </span>
-      <span class="book soon" aria-label="Astrología lúcida, próximamente">
-        <span class="cover"><span class="badge">Próximamente</span><img src="assets/books/astrologia-lucida.jpg" alt="Portada de Astrología lúcida" loading="lazy" /></span>
-        <span class="bt">Astrología lúcida</span>
-        <span class="bs">Vol. IV</span>
+      <span class="bookcard soon" aria-label="Astrología lúcida, próximamente">
+        <span class="bc-cover"><span class="badge">Próximamente</span><img src="assets/books/astrologia-lucida.jpg" alt="Portada de Astrología lúcida" loading="lazy" /></span>
+        <span class="bc-body">
+          <span class="bc-meta">Vol. IV · Próximamente</span>
+          <span class="bc-title">Astrología lúcida</span>
+          <span class="bc-desc">Cosmología simbólica, sin determinismo ni horóscopos de feria.</span>
+        </span>
       </span>
-      <span class="book soon" aria-label="Ritual lúcido, próximamente">
-        <span class="cover"><span class="badge">Próximamente</span><img src="assets/books/ritual-lucido.jpg" alt="Portada de Ritual lúcido" loading="lazy" /></span>
-        <span class="bt">Ritual lúcido</span>
-        <span class="bs">Vol. V</span>
+      <span class="bookcard soon" aria-label="Ritual lúcido, próximamente">
+        <span class="bc-cover"><span class="badge">Próximamente</span><img src="assets/books/ritual-lucido.jpg" alt="Portada de Ritual lúcido" loading="lazy" /></span>
+        <span class="bc-body">
+          <span class="bc-meta">Vol. V · Próximamente</span>
+          <span class="bc-title">Ritual lúcido</span>
+          <span class="bc-desc">La práctica ritual estudiada con rigor, sin superstición.</span>
+        </span>
       </span>
-      <span class="book soon" aria-label="Alquimia lúcida, próximamente">
-        <span class="cover"><span class="badge">Próximamente</span><img src="assets/books/alquimia-lucida.jpg" alt="Portada de Alquimia lúcida" loading="lazy" /></span>
-        <span class="bt">Alquimia lúcida</span>
-        <span class="bs">Vol. VI</span>
+      <span class="bookcard soon" aria-label="Alquimia lúcida, próximamente">
+        <span class="bc-cover"><span class="badge">Próximamente</span><img src="assets/books/alquimia-lucida.jpg" alt="Portada de Alquimia lúcida" loading="lazy" /></span>
+        <span class="bc-body">
+          <span class="bc-meta">Vol. VI · Próximamente</span>
+          <span class="bc-title">Alquimia lúcida</span>
+          <span class="bc-desc">La transformación simbólica de la materia y del alma.</span>
+        </span>
       </span>
     </div>
 
