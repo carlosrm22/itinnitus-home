@@ -64,11 +64,14 @@
 
     /* Header */
     header { text-align: center; margin-bottom: 36px; }
-    .logo {
-      width: 92px; height: 92px;
+    .avatar {
+      width: 116px; height: 116px;
       margin: 0 auto 18px;
       display: block;
-      filter: drop-shadow(0 6px 16px rgba(29,113,184,.25));
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--card);
+      box-shadow: 0 8px 22px rgba(0,0,0,.30);
     }
     h1 {
       font-size: clamp(1.5rem, 5vw, 2rem);
@@ -172,15 +175,9 @@
     .book .bt { font-size: .82rem; font-weight: 600; line-height: 1.25; }
     .book .bs { font-size: .72rem; color: var(--muted); }
 
-    /* Tarjetas "Próximamente" con emblema dorado */
+    /* Tarjetas "Próximamente" (portada real + insignia) */
     .book.soon { cursor: default; }
-    .book.soon .cover {
-      background: linear-gradient(160deg, #1c1733, #0d0a18);
-      display: grid;
-      place-items: center;
-      padding: 16%;
-    }
-    .book.soon .cover img { width: 100%; height: auto; object-fit: contain; opacity: .92; }
+    .book.soon .cover img { opacity: .96; }
     .book.soon .bt { color: var(--muted); }
     .badge {
       position: absolute;
@@ -218,7 +215,7 @@
 <body>
   <main class="wrap">
     <header>
-      <img class="logo" src="assets/logo.svg" alt="Logo itinnitus" width="92" height="92" />
+      <img class="avatar" src="assets/carlos.jpg" alt="Carlos Alfonso Romero Muñoz" width="116" height="116" />
       <h1>Carlos Alfonso Romero Muñoz</h1>
       <p class="tagline">Autor y desarrollador · educación Montessori, símbolos y código.</p>
     </header>
@@ -241,6 +238,18 @@
     <!-- ============ LIBROS ============ -->
     <p class="section-label">Libros</p>
 
+    <p class="sub-label">Narrativa</p>
+    <nav class="links">
+      <a class="link" href="https://www.amazon.com.mx/dp/B0GZJWL5MR" target="_blank" rel="noopener">
+        <span class="thumb"><img src="assets/books/ain-sof.jpg" alt="Portada de Carne ajena: AIN SOF" loading="lazy" /></span>
+        <span class="body">
+          <span class="title">Carne ajena: AIN SOF</span>
+          <span class="sub">El evangelio del demiurgo que nació hacia atrás</span>
+        </span>
+        <span class="chev" aria-hidden="true">→</span>
+      </a>
+    </nav>
+
     <p class="sub-label">Biblioteca Hermética</p>
     <div class="shelf">
       <a class="book" href="https://www.amazon.com.mx/dp/B0GX3GP1FY" target="_blank" rel="noopener">
@@ -254,38 +263,26 @@
         <span class="bs">Vol. II</span>
       </a>
       <span class="book soon" aria-label="Cábala hermética lúcida, próximamente">
-        <span class="cover"><span class="badge">Próximamente</span><img src="assets/books/emblema-vol3.png" alt="" loading="lazy" /></span>
+        <span class="cover"><span class="badge">Próximamente</span><img src="assets/books/cabala-lucida.jpg" alt="Portada de Cábala hermética lúcida" loading="lazy" /></span>
         <span class="bt">Cábala hermética lúcida</span>
         <span class="bs">Vol. III</span>
       </span>
       <span class="book soon" aria-label="Astrología lúcida, próximamente">
-        <span class="cover"><span class="badge">Próximamente</span><img src="assets/books/emblema-vol4.png" alt="" loading="lazy" /></span>
+        <span class="cover"><span class="badge">Próximamente</span><img src="assets/books/astrologia-lucida.jpg" alt="Portada de Astrología lúcida" loading="lazy" /></span>
         <span class="bt">Astrología lúcida</span>
         <span class="bs">Vol. IV</span>
       </span>
       <span class="book soon" aria-label="Ritual lúcido, próximamente">
-        <span class="cover"><span class="badge">Próximamente</span><img src="assets/books/emblema-vol5.png" alt="" loading="lazy" /></span>
+        <span class="cover"><span class="badge">Próximamente</span><img src="assets/books/ritual-lucido.jpg" alt="Portada de Ritual lúcido" loading="lazy" /></span>
         <span class="bt">Ritual lúcido</span>
         <span class="bs">Vol. V</span>
       </span>
       <span class="book soon" aria-label="Alquimia lúcida, próximamente">
-        <span class="cover"><span class="badge">Próximamente</span><img src="assets/books/emblema-vol6.png" alt="" loading="lazy" /></span>
+        <span class="cover"><span class="badge">Próximamente</span><img src="assets/books/alquimia-lucida.jpg" alt="Portada de Alquimia lúcida" loading="lazy" /></span>
         <span class="bt">Alquimia lúcida</span>
         <span class="bs">Vol. VI</span>
       </span>
     </div>
-
-    <p class="sub-label">Narrativa</p>
-    <nav class="links">
-      <a class="link" href="https://www.amazon.com.mx/dp/B0GZJWL5MR" target="_blank" rel="noopener">
-        <span class="thumb"><img src="assets/books/ain-sof.jpg" alt="Portada de Carne ajena: AIN SOF" loading="lazy" /></span>
-        <span class="body">
-          <span class="title">Carne ajena: AIN SOF</span>
-          <span class="sub">El evangelio del demiurgo que nació hacia atrás</span>
-        </span>
-        <span class="chev" aria-hidden="true">→</span>
-      </a>
-    </nav>
 
     <!--
       Huecos listos para sumar después:
