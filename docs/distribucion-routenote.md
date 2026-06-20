@@ -10,8 +10,11 @@ Archivos listos en: `~/Música/Carlos Romero/Originales para RouteNote/`
 ## Maat encarnada (Single)
 
 **Archivos a subir:**
-- Audio: `Maat encarnada.wav` (44.1 kHz / 16-bit) — NO subir el .mp3
+- Audio: `Maat encarnada 320.mp3` (MP3 320 kbps / 44.1 kHz) — alternativa: `Maat encarnada.flac`
 - Portada: `Maat encarnada - portada 3000.jpg` (3000×3000)
+
+> RouteNote SOLO acepta **MP3 320 kbps-44.1 kHz** o **FLAC 44.1 kHz**.
+> El `.wav` y el `.mp3` de 164 kbps los rechaza.
 
 **Metadatos:**
 - Título del lanzamiento: **Maat encarnada** · Tipo: **Single**
