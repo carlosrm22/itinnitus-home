@@ -231,22 +231,25 @@
     }
     .pl-now {
       display: flex;
+      flex-direction: column;
       align-items: center;
+      text-align: center;
       gap: 14px;
-      padding: 16px 18px;
+      padding: 22px 18px 10px;
     }
     .pl-art {
       flex: 0 0 auto;
-      width: 120px; height: 120px;
-      border-radius: 16px;
+      width: min(78%, 260px);
+      aspect-ratio: 1 / 1;
+      border-radius: 18px;
       display: grid; place-items: center;
       background: linear-gradient(135deg, rgba(29,113,184,.18), rgba(255,222,0,.18));
       color: var(--blue);
       overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0,0,0,.34);
+      box-shadow: 0 14px 36px rgba(0,0,0,.40);
     }
     .pl-art img { width: 100%; height: 100%; object-fit: cover; }
-    .pl-art svg { width: 46px; height: 46px; }
+    .pl-art svg { width: 64px; height: 64px; }
 
     /* Botón "Ver más" (libros en preparación) */
     .more-btn {
@@ -261,16 +264,16 @@
     .more-btn:hover { border-color: var(--blue); color: var(--blue); }
     .more-books { margin-top: 12px; }
     .more-books[hidden] { display: none; }
-    .pl-meta { flex: 1 1 auto; min-width: 0; }
+    .pl-meta { width: 100%; max-width: 100%; }
     .pl-kicker {
       font-size: .68rem; text-transform: uppercase; letter-spacing: .1em;
       font-weight: 700; color: var(--muted);
     }
     .pl-title {
-      font-weight: 700; font-size: 1.05rem; line-height: 1.25;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      font-weight: 700; font-size: 1.15rem; line-height: 1.25;
+      margin-top: 2px;
     }
-    .pl-album { font-size: .82rem; color: var(--muted); }
+    .pl-album { font-size: .85rem; color: var(--muted); }
 
     .pl-progress { padding: 0 18px 4px; }
     .pl-bar {
