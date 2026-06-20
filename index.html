@@ -237,15 +237,29 @@
     }
     .pl-art {
       flex: 0 0 auto;
-      width: 64px; height: 64px;
-      border-radius: 12px;
+      width: 84px; height: 84px;
+      border-radius: 14px;
       display: grid; place-items: center;
       background: linear-gradient(135deg, rgba(29,113,184,.18), rgba(255,222,0,.18));
       color: var(--blue);
       overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,.30);
     }
     .pl-art img { width: 100%; height: 100%; object-fit: cover; }
-    .pl-art svg { width: 30px; height: 30px; }
+    .pl-art svg { width: 34px; height: 34px; }
+
+    /* Botón "Ver más" (libros en preparación) */
+    .more-btn {
+      display: block; width: 100%;
+      margin-top: 12px; padding: 12px 16px;
+      background: var(--card);
+      border: 1px dashed var(--border); border-radius: var(--radius);
+      color: var(--muted); font: inherit; font-size: .9rem; font-weight: 600;
+      cursor: pointer;
+      transition: border-color .15s ease, color .15s ease;
+    }
+    .more-btn:hover { border-color: var(--blue); color: var(--blue); }
+    .more-books { margin-top: 12px; }
     .pl-meta { flex: 1 1 auto; min-width: 0; }
     .pl-kicker {
       font-size: .68rem; text-transform: uppercase; letter-spacing: .1em;
@@ -378,15 +392,15 @@
     .pl-ah-play:active { transform: scale(.94); }
     .pl-ah-play svg { width: 18px; height: 18px; fill: #fff; }
     .pl-ah-cover {
-      flex: 0 0 auto; width: 46px; height: 46px;
-      border-radius: 9px; overflow: hidden;
+      flex: 0 0 auto; width: 68px; height: 68px;
+      border-radius: 12px; overflow: hidden;
       display: grid; place-items: center;
       background: linear-gradient(135deg, rgba(29,113,184,.20), rgba(255,222,0,.18));
       color: var(--blue);
-      box-shadow: 0 2px 8px rgba(0,0,0,.18);
+      box-shadow: 0 4px 14px rgba(0,0,0,.28);
     }
     .pl-ah-cover img { width: 100%; height: 100%; object-fit: cover; }
-    .pl-ah-cover svg { width: 22px; height: 22px; }
+    .pl-ah-cover svg { width: 28px; height: 28px; }
     .pl-ah-info { flex: 1 1 auto; min-width: 0; }
     .pl-ah-title { font-weight: 700; font-size: .92rem; line-height: 1.2; }
     .pl-ah-meta { font-size: .72rem; color: var(--muted); }
@@ -476,6 +490,9 @@
           <span class="bc-cta">Ver en Amazon →</span>
         </span>
       </a>
+    </div>
+    <button class="more-btn" id="moreBtn" type="button" aria-expanded="false" aria-controls="moreBooks">Ver 4 títulos en preparación ▾</button>
+    <div class="booklist more-books" id="moreBooks" hidden>
       <span class="bookcard soon" aria-label="Cábala hermética lúcida, próximamente">
         <span class="bc-cover"><span class="badge">Próximamente</span><img src="assets/books/cabala-lucida.jpg" alt="Portada de Cábala hermética lúcida" loading="lazy" /></span>
         <span class="bc-body">
@@ -590,6 +607,19 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* Toggle "Ver más" de libros en preparación */
+    (function () {
+      const btn = document.getElementById('moreBtn');
+      const box = document.getElementById('moreBooks');
+      if (!btn || !box) return;
+      btn.addEventListener('click', () => {
+        const show = box.hasAttribute('hidden');
+        if (show) box.removeAttribute('hidden'); else box.setAttribute('hidden', '');
+        btn.setAttribute('aria-expanded', String(show));
+        btn.textContent = show ? 'Ver menos ▴' : 'Ver 4 títulos en preparación ▾';
+      });
+    })();
 
     /* ===== Reproductor de música — organizado por álbumes =====
        Para añadir/editar: edita ALBUMS.
