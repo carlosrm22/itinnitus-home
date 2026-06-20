@@ -9,6 +9,10 @@ Archivos listos en: `~/Música/Carlos Romero/Originales para RouteNote/`
 
 ## Maat encarnada (Single)
 
+> **Estado:** ENVIADO a RouteNote el 2026-06-20 — "En revisión". Content ID
+> desactivado, YouTube Music activado. Pendiente: enlace de Spotify para
+> embeber en el sitio.
+
 **Archivos a subir:**
 - Audio: `Maat encarnada 320.mp3` (MP3 320 kbps / 44.1 kHz) — alternativa: `Maat encarnada.flac`
 - Portada: `Maat encarnada - portada 3000.jpg` (3000×3000)
