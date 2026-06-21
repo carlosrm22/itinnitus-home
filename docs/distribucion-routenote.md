@@ -71,7 +71,10 @@ Carpeta: `~/Música/Carlos Romero/Originales para RouteNote/El Dios sin manos/`
 - **Content ID: DESACTIVADO** (instrumental). Sí marcar YouTube Music + resto de tiendas.
 - Pistas y orden: ver `METADATOS RouteNote.txt` en esa carpeta.
 
-## La Multiplicación de los Peces (Álbum, 5 pistas) — preparado 2026-06-20
+## La Multiplicación de los Peces (EP, 5 pistas) — preparado 2026-06-20
+
+> **Estado:** ENVIADO a RouteNote el 2026-06-20 — "In Review". RouteNote lo clasificó
+> como **EP** (5 pistas: Single 1-3, EP 4-6, Álbum 7+). Correcto, no cambiar.
 
 Carpeta: `~/Música/Carlos Romero/Originales para RouteNote/La Multiplicacion de los Peces/`
 - Audio `01..05 *.mp3` (MP3 320/44.1) + portada 3000. Label iTinnitus. Género Jazz (contemporáneo).
