@@ -1,7 +1,19 @@
 # Distribución en RouteNote
 
-Plan **Free** (85% de regalías, sin costo). Solo se distribuyen **originales**;
-los covers (Los Ponchos, Amor Pirata) NO van a tiendas, solo al sitio + YouTube.
+Plan **Free** (85% de regalías, sin costo). **Solo se distribuye material 100% original.**
+Covers y adaptaciones (obras derivadas) NO van a tiendas — solo sitio + YouTube
+(ahí, a lo más, un reclamo de Content ID; sin riesgo de cuenta).
+
+### ⛔ NO subir a tiendas (excluir al armar metadatos)
+- **Los Ponchos · Vol. 1, Vol. 2 y Amor Pirata** — álbumes completos (boleros con derechos).
+- **Trifase → "Cantina Bar"** — cover de Star Wars (John Williams). Distribuir Trifase SIN esa pista.
+- **El Gran Río → "Bésame Chucho"** (adaptación de *Bésame Mucho*).
+- **El Gran Río → "Balada para un loko"** (adaptación de Piazzolla & Ferrer).
+- **El Gran Río → "Reflejo"** (contiene el motivo de *Bésame Mucho*).
+  → El Gran Río se distribuye solo con sus pistas 100% originales (sin esas tres).
+
+Regla: cover declarado ≠ licencia. Las **adaptaciones/arreglos** son obra derivada y
+requieren permiso directo del titular; aún más riesgoso que un cover fiel. A tiendas, solo lo propio.
 
 Archivos listos en: `~/Música/Carlos Romero/Originales para RouteNote/`
 
