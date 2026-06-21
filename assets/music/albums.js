@@ -35,12 +35,14 @@ const ALBUMS = [
     title: "La Multiplicación de los Peces",
     meta: "Jazz contemporáneo · Carlos Romero",
     cover: "assets/music/covers/multiplicacion-peces.jpg",
+    playlist: "https://www.youtube.com/playlist?list=PLTomVcRsp05ahmrcM53SE6Lwpju6Si7nT",
+    playlistPub: "2026-07-25T19:00",
     tracks: [
-      { title: "Códigos de Entorno", src: "assets/music/multiplicacion-peces/1-01-codigos-de-entorno.mp3" },
-      { title: "7", src: "assets/music/multiplicacion-peces/1-02-7.mp3" },
-      { title: "Mess to the Mess", src: "assets/music/multiplicacion-peces/1-03-mess-to-the-mess.mp3" },
-      { title: "Jessy's Waltz", src: "assets/music/multiplicacion-peces/1-04-jessy-s-waltz.mp3" },
-      { title: "Indicios", src: "assets/music/multiplicacion-peces/1-05-indicios-1.mp3" }
+      { title: "Códigos de Entorno", src: "assets/music/multiplicacion-peces/1-01-codigos-de-entorno.mp3", youtube: "https://youtu.be/D3cTcOkqWLY", pub: "2026-07-25T19:00" },
+      { title: "7", src: "assets/music/multiplicacion-peces/1-02-7.mp3", youtube: "https://youtu.be/rhXI1hGTeZc", pub: "2026-07-26T19:00" },
+      { title: "Mess to the Mess", src: "assets/music/multiplicacion-peces/1-03-mess-to-the-mess.mp3", youtube: "https://youtu.be/s-hOSFsptg8", pub: "2026-07-27T19:00" },
+      { title: "Jessy's Waltz", src: "assets/music/multiplicacion-peces/1-04-jessy-s-waltz.mp3", youtube: "https://youtu.be/xxoXcaslCyY", pub: "2026-07-28T19:00" },
+      { title: "Indicios", src: "assets/music/multiplicacion-peces/1-05-indicios-1.mp3", youtube: "https://youtu.be/wTimA5NAGKQ", pub: "2026-07-29T19:00" }
     ]
   },
   {
