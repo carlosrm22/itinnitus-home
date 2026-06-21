@@ -78,10 +78,12 @@ const ALBUMS = [
     title: "Ares",
     meta: "Quinteto de cuerdas · Carlos Romero",
     cover: "assets/music/covers/marte.jpg",
+    playlist: "https://www.youtube.com/playlist?list=PLTomVcRsp05bZi69OrG8fWNiMWXQu-slP",
+    playlistPub: "2026-08-10T19:00",
     tracks: [
-      { title: "Fobos", src: "assets/music/marte/marte-01.mp3" },
-      { title: "Deimos", src: "assets/music/marte/marte-02.mp3" },
-      { title: "Marte", src: "assets/music/marte/marte-03.mp3" }
+      { title: "Fobos", src: "assets/music/marte/marte-01.mp3", youtube: "https://youtu.be/dq-fjTjnbpU", pub: "2026-08-10T19:00" },
+      { title: "Deimos", src: "assets/music/marte/marte-02.mp3", youtube: "https://youtu.be/3eP08EJTBDA", pub: "2026-08-11T19:00" },
+      { title: "Marte", src: "assets/music/marte/marte-03.mp3", youtube: "https://youtu.be/s6JxhJPYFMo", pub: "2026-08-12T19:00" }
     ]
   },
   {
