@@ -156,10 +156,12 @@ const ALBUMS = [
     title: "Los Ponchos · Vol. 1",
     meta: "Boleros · voz de Alfonso Romero",
     cover: "assets/music/covers/los-ponchos-vol1.jpg",
+    // Playlist se publica en unos días — activar (quitar //) cuando esté en línea:
+    // playlist: "https://www.youtube.com/playlist?list=PLTomVcRsp05ZaJrW0-c-VJ9dhdwArNQey",
     tracks: [
-      { title: "La Barca", src: "assets/music/los-ponchos/1-01-la-barca.mp3" },
-      { title: "Odiame", src: "assets/music/los-ponchos/1-02-odiame.mp3" },
-      { title: "El Rey Azul", src: "assets/music/los-ponchos/1-03-el-rey-azul.mp3" },
+      { title: "La Barca", src: "assets/music/los-ponchos/1-01-la-barca.mp3" /*, youtube: "https://youtu.be/meH7edstdmk" */ },
+      { title: "Odiame", src: "assets/music/los-ponchos/1-02-odiame.mp3" /*, youtube: "https://youtu.be/xY1JrPgp7-s" */ },
+      { title: "El Rey Azul", src: "assets/music/los-ponchos/1-03-el-rey-azul.mp3" /*, youtube: "https://youtu.be/90KjuuyzrFg" */ },
       { title: "Dos Gardenias", src: "assets/music/los-ponchos/1-04-dos-gardenias.mp3" },
       { title: "Almohada", src: "assets/music/los-ponchos/1-05-almohada.mp3" },
       { title: "Alma Corazón y Vida", src: "assets/music/los-ponchos/1-06-alma-corazon-y-vida.mp3" },
@@ -191,17 +193,20 @@ const ALBUMS = [
     title: "Amor Pirata y otros amores clandestinos",
     meta: "Boleros · voz de Alfonso Romero",
     cover: "assets/music/covers/amor-pirata.jpg",
-    // TODO: renombra "Pista N" con los títulos reales cuando los tengas
+    playlist: "https://www.youtube.com/playlist?list=PLTomVcRsp05aiQe1hEBkCGF0MdVhh37TK",
+    // Streaming (rellenar cuando RouteNote esté Live; descomentar):
+    // links: { spotify: "", apple: "", ytmusic: "", amazon: "", deezer: "", tidal: "" },
     tracks: [
-      { title: "Amor Pirata", src: "assets/music/amor-pirata/amor-pirata-01.mp3" },
-      { title: "Soy lo prohibido", src: "assets/music/amor-pirata/amor-pirata-02.mp3" },
-      { title: "Si te hubiera conocido ayer", src: "assets/music/amor-pirata/amor-pirata-03.mp3" },
-      { title: "Sigamos pecando", src: "assets/music/amor-pirata/amor-pirata-04.mp3" },
-      { title: "Dos amores", src: "assets/music/amor-pirata/amor-pirata-05.mp3" },
-      { title: "No por favor", src: "assets/music/amor-pirata/amor-pirata-06.mp3" },
-      { title: "Me está gustando", src: "assets/music/amor-pirata/amor-pirata-07.mp3" },
-      { title: "A pesar de todo", src: "assets/music/amor-pirata/amor-pirata-08.mp3" },
-      { title: "Presentimiento", src: "assets/music/amor-pirata/amor-pirata-09.mp3" }
+      // Para activar cada video: quita los /* */ del youtube cuando ya esté público.
+      { title: "Amor Pirata", src: "assets/music/amor-pirata/amor-pirata-01.mp3", youtube: "https://youtu.be/iOyJDM6HvpY" },
+      { title: "Soy lo prohibido", src: "assets/music/amor-pirata/amor-pirata-02.mp3" /*, youtube: "https://youtu.be/yGQAz3F3898" */ },
+      { title: "Si te hubiera conocido ayer", src: "assets/music/amor-pirata/amor-pirata-03.mp3" /*, youtube: "https://youtu.be/aRcYkFgiIjI" */ },
+      { title: "Sigamos pecando", src: "assets/music/amor-pirata/amor-pirata-04.mp3" /*, youtube: "https://youtu.be/4FAb0E60A-A" */ },
+      { title: "Dos amores", src: "assets/music/amor-pirata/amor-pirata-05.mp3" /*, youtube: "https://youtu.be/NrXZ3yMOIG4" */ },
+      { title: "No por favor", src: "assets/music/amor-pirata/amor-pirata-06.mp3" /*, youtube: "https://youtu.be/SlJ53LvQ6xE" */ },
+      { title: "Me está gustando", src: "assets/music/amor-pirata/amor-pirata-07.mp3" /*, youtube: "https://youtu.be/dd5kHtDKGkg" */ },
+      { title: "A pesar de todo", src: "assets/music/amor-pirata/amor-pirata-08.mp3" /*, youtube: "https://youtu.be/Yda6-UF9iPs" */ },
+      { title: "Presentimiento", src: "assets/music/amor-pirata/amor-pirata-09.mp3" /*, youtube: "https://youtu.be/B-eoITQfJJU" */ }
     ]
   }
 ];

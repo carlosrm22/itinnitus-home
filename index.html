@@ -404,6 +404,23 @@
     .pl-ah-play:hover { filter: brightness(1.08); transform: translateY(-1px); }
     .pl-ah-play:active { transform: scale(.94); }
     .pl-ah-play svg { width: 18px; height: 18px; fill: #fff; }
+
+    /* Enlaces del álbum (playlist YouTube + streaming) */
+    .pl-ah-links { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 18px 12px; }
+    .pl-svc {
+      display: inline-grid; place-items: center; width: 34px; height: 34px;
+      border-radius: 9px; border: 1px solid var(--border); background: var(--bg-soft);
+      color: var(--muted);
+      transition: color .12s ease, border-color .12s ease, transform .12s ease;
+    }
+    .pl-svc:hover { transform: translateY(-1px); border-color: var(--blue); color: var(--blue); }
+    .pl-svc svg { width: 18px; height: 18px; fill: currentColor; }
+    .pl-svc-yt:hover, .pl-svc-ytmusic:hover { color: var(--red); border-color: var(--red); }
+    .pl-svc-spotify:hover { color: #1DB954; border-color: #1DB954; }
+    .pl-svc-apple:hover { color: #fa2d48; border-color: #fa2d48; }
+    .pl-svc-amazon:hover { color: #25D1DA; border-color: #25D1DA; }
+    .pl-svc-deezer:hover { color: #a238ff; border-color: #a238ff; }
+    .pl-svc-tidal:hover { color: var(--text); border-color: var(--text); }
     .pl-ah-cover {
       flex: 0 0 auto; width: 68px; height: 68px;
       border-radius: 12px; overflow: hidden;
@@ -797,6 +814,11 @@
       const ICON_PAUSE = '<path d="M6 5h4v14H6zm8 0h4v14h-4z"/>';
       const ICON_NOTE = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>';
       const YT_SVG = '<svg viewBox="0 0 24 24"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.5A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.5a2.5 2.5 0 0 0 1.8-1.8C23 15.2 23 12 23 12zM9.8 15.3V8.7l5.7 3.3z"/></svg>';
+      const SVG_SPOTIFY = '<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 14.4a.62.62 0 0 1-.86.21c-2.35-1.44-5.3-1.76-8.79-.96a.62.62 0 1 1-.28-1.21c3.81-.87 7.08-.5 9.72 1.11.3.18.39.57.21.85zm1.23-2.73a.78.78 0 0 1-1.07.26c-2.69-1.66-6.79-2.14-9.97-1.17a.78.78 0 1 1-.45-1.49c3.63-1.1 8.15-.57 11.24 1.33.37.22.49.7.25 1.07zm.11-2.85C14.78 8.97 9.5 8.78 6.5 9.69a.94.94 0 1 1-.54-1.8c3.44-1.04 9.27-.84 12.93 1.33a.94.94 0 0 1-.96 1.61z"/></svg>';
+      const SVG_APPLE = '<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm3.2 4.6V13a2.6 2.6 0 1 1-1.6-2.4V8.3l-3.8 1v5.1a2.6 2.6 0 1 1-1.6-2.4V8.1l7-1.5z"/></svg>';
+      const SVG_AMAZON = '<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm3 5v6.2A2.6 2.6 0 1 1 13.4 11V9.1l-3 .8v4.9A2.6 2.6 0 1 1 8.8 12.4V8l6.2-1z"/></svg>';
+      const SVG_DEEZER = '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="17" y="6" width="5" height="3"/><rect x="17" y="10.5" width="5" height="3"/><rect x="10.5" y="10.5" width="5" height="3"/><rect x="17" y="15" width="5" height="3"/><rect x="10.5" y="15" width="5" height="3"/><rect x="4" y="15" width="5" height="3"/></svg>';
+      const SVG_TIDAL = '<svg viewBox="0 0 24 24"><path d="M6.2 6 9 8.8 6.2 11.6 3.4 8.8zM11.8 6l2.8 2.8-2.8 2.8L9 8.8zM17.4 6l2.8 2.8-2.8 2.8-2.8-2.8zM11.8 11.6l2.8 2.8-2.8 2.8L9 14.4z"/></svg>';
 
       const fmt = s => {
         if (!isFinite(s)) return "0:00";
@@ -867,6 +889,29 @@
         head.appendChild(main);
         head.appendChild(playAl);
 
+        // Fila de enlaces del álbum: playlist de YouTube + streaming (si existen)
+        const albumLinks = [];
+        if (al.playlist) albumLinks.push({ url: al.playlist, label: 'Ver en YouTube', cls: 'yt', svg: YT_SVG });
+        if (al.links) {
+          [['spotify', 'Spotify', SVG_SPOTIFY], ['apple', 'Apple Music', SVG_APPLE],
+           ['ytmusic', 'YouTube Music', YT_SVG], ['amazon', 'Amazon Music', SVG_AMAZON],
+           ['deezer', 'Deezer', SVG_DEEZER], ['tidal', 'Tidal', SVG_TIDAL]
+          ].forEach(s => { if (al.links[s[0]]) albumLinks.push({ url: al.links[s[0]], label: s[1], cls: s[0], svg: s[2] }); });
+        }
+        let linksRow = null;
+        if (albumLinks.length) {
+          linksRow = document.createElement('div');
+          linksRow.className = 'pl-ah-links';
+          albumLinks.forEach(l => {
+            const a = document.createElement('a');
+            a.className = 'pl-svc pl-svc-' + l.cls;
+            a.href = l.url; a.target = '_blank'; a.rel = 'noopener';
+            a.title = l.label; a.setAttribute('aria-label', l.label + ' — ' + al.title);
+            a.innerHTML = l.svg;
+            linksRow.appendChild(a);
+          });
+        }
+
         al.tracks.forEach((t, j) => {
           const idx = qi++;
           const row = document.createElement('button');
@@ -908,6 +953,7 @@
         });
 
         listEl.appendChild(head);
+        if (linksRow) listEl.appendChild(linksRow);
         listEl.appendChild(wrap);
       });
 
