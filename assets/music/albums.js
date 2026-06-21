@@ -49,14 +49,16 @@ const ALBUMS = [
     title: "Tramonto",
     meta: "Jazz contemporáneo · Aurelio Cuello",
     cover: "assets/music/covers/tramonto.jpg",
+    playlist: "https://www.youtube.com/playlist?list=PLTomVcRsp05ag71YGhZitwENDcMEpYgA9",
+    playlistPub: "2026-07-30T19:00",
     tracks: [
-      { title: "Hora dorada", src: "assets/music/tramonto/tramonto-01.mp3" },
-      { title: "Cobre verde", src: "assets/music/tramonto/tramonto-02.mp3" },
-      { title: "Antumbra", src: "assets/music/tramonto/tramonto-03.mp3" },
-      { title: "Incendio oscuro", src: "assets/music/tramonto/tramonto-04.mp3" },
-      { title: "Respiro", src: "assets/music/tramonto/tramonto-05.mp3" },
-      { title: "Délire bleu", src: "assets/music/tramonto/tramonto-06.mp3" },
-      { title: "Última luz", src: "assets/music/tramonto/tramonto-07.mp3" }
+      { title: "Hora dorada", src: "assets/music/tramonto/tramonto-01.mp3", youtube: "https://youtu.be/UW8MMx5GiNk", pub: "2026-07-30T19:00" },
+      { title: "Cobre verde", src: "assets/music/tramonto/tramonto-02.mp3", youtube: "https://youtu.be/w5UTXMPyOeg", pub: "2026-07-31T19:00" },
+      { title: "Antumbra", src: "assets/music/tramonto/tramonto-03.mp3", youtube: "https://youtu.be/emVNhY6Xkm8", pub: "2026-08-01T19:00" },
+      { title: "Incendio oscuro", src: "assets/music/tramonto/tramonto-04.mp3", youtube: "https://youtu.be/Q6Wn-2WMZQM", pub: "2026-08-02T19:00" },
+      { title: "Respiro", src: "assets/music/tramonto/tramonto-05.mp3", youtube: "https://youtu.be/lJjsw7O9q4c", pub: "2026-08-03T19:00" },
+      { title: "Délire bleu", src: "assets/music/tramonto/tramonto-06.mp3", youtube: "https://youtu.be/FDXj9n-rk74", pub: "2026-08-04T19:00" },
+      { title: "Última luz", src: "assets/music/tramonto/tramonto-07.mp3", youtube: "https://youtu.be/uDMD2NHvo6g", pub: "2026-08-05T19:00" }
     ]
   },
   {
