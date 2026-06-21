@@ -161,13 +161,14 @@ const ALBUMS = [
     title: "Trifase",
     meta: "Rock experimental · tres guitarras eléctricas · Carlos Romero",
     cover: "assets/music/covers/trifase.jpg",
+    // Falta URL de playlist de Trifase (agregar cuando la tengas).
     tracks: [
-      { title: "Cortocircuito", src: "assets/music/guitarras/guitarras-01.m4a" },
-      { title: "Feedback", src: "assets/music/guitarras/guitarras-02.m4a" },
-      { title: "Trémolo", src: "assets/music/guitarras/guitarras-03.m4a" },
-      { title: "Resonancia", src: "assets/music/guitarras/guitarras-04.m4a" },
-      { title: "Sobrecarga", src: "assets/music/guitarras/guitarras-05.m4a" },
-      { title: "Cantina Bar", src: "assets/music/guitarras/guitarras-06.m4a" }
+      { title: "Cortocircuito", src: "assets/music/guitarras/guitarras-01.m4a", youtube: "https://youtu.be/vUU2rrPZojg", pub: "2026-09-17T19:00" },
+      { title: "Feedback", src: "assets/music/guitarras/guitarras-02.m4a", youtube: "https://youtu.be/igc1AIoZvw8", pub: "2026-09-18T19:00" },
+      { title: "Trémolo", src: "assets/music/guitarras/guitarras-03.m4a", youtube: "https://youtu.be/Q47LGGFSCmU", pub: "2026-09-19T19:00" },
+      { title: "Resonancia", src: "assets/music/guitarras/guitarras-04.m4a", youtube: "https://youtu.be/X5nEU1JAcr8", pub: "2026-09-20T19:00" },
+      { title: "Sobrecarga", src: "assets/music/guitarras/guitarras-05.m4a", youtube: "https://youtu.be/v8Qw7un7v9Q", pub: "2026-09-21T19:00" },
+      { title: "Cantina Bar", src: "assets/music/guitarras/guitarras-06.m4a", youtube: "https://youtu.be/rXRfoT9ZI8c", pub: "2026-09-22T19:00" }
     ]
   },
   {
