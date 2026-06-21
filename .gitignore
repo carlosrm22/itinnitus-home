@@ -3,5 +3,11 @@ node_modules/
 .wrangler/
 *.log
 
-# Audios pesados: se publican por wrangler direct-upload, no por git
-assets/music/
+# Audios pesados: se publican por wrangler direct-upload, no por git.
+# Se ignora SOLO el audio por extensión; albums.js y los covers SÍ se versionan.
+assets/music/**/*.mp3
+assets/music/*.mp3
+assets/music/**/*.m4a
+assets/music/*.m4a
+assets/music/**/*.wav
+assets/music/*.wav
