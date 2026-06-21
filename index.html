@@ -479,11 +479,15 @@
     <p class="section-label" id="sobre-mi">Sobre mí</p>
     <div class="bio">
       <p>Carlos Alfonso Romero Muñoz es economista, compositor, desarrollador y autor. Pero su formación empezó mucho antes de cualquier título: se educó íntegramente en el método Montessori —de nido a casa de niños y taller— de la mano de su madre, Roxana Muñoz, guía y autora Montessori. Esa raíz atraviesa todo lo que hace.</p>
-      <p>Desde hace más de quince años dirige la Asociación Montessori de México (AMMAC), y es contador financiero y cofundador de la Sociedad de Escuelas Montessori S.C. Escribe con regularidad en montessorimexico.org sobre educación, tecnología y finanzas: tres lenguajes que, en su trabajo, no compiten sino que se traducen entre sí.</p>
-      <p>Como autor diseñó la Biblioteca Hermética, una pequeña línea editorial con filosofía propia —el escepticismo mágico—: profundidad sin humo y rigor sin cinismo, para quien ama el misterio y desconfía de las certezas fáciles. Con la novela <em>Ain Sof: El evangelio del demiurgo que nació hacia atrás</em> llevó esa misma indagación a la ficción.</p>
-      <p>Cuando no escribe, compone música —del jazz contemporáneo al bolero y la guitarra eléctrica— y desarrolla software. Cree que el misterio no necesita mentir, que un símbolo bien leído ordena la atención mejor que cualquier promesa, y que se puede estudiar lo invisible sin apagar el incienso ni cerrar las ventanas.</p>
-      <p>Vive en Ciudad de México.</p>
+      <div class="bio-more" id="bioMore" hidden>
+        <p>De su padre, Alfonso Romero Hernández —voz de Los Ponchos, locutor, músico e ilusionista— heredó la guitarra y la música, y también otra forma de mirar la magia: la del asombro con mecanismo. De él aprendió que todo «milagro» puede esconder una técnica, y que descubrir el truco no mata la maravilla: a veces la vuelve más precisa. Ahí nació buena parte de su escepticismo mágico.</p>
+        <p>Desde hace más de quince años dirige la Asociación Montessori de México (AMMAC), y es contador financiero y cofundador de la Sociedad de Escuelas Montessori S.C. Escribe con regularidad en montessorimexico.org sobre educación, tecnología y finanzas: tres lenguajes que, en su trabajo, no compiten sino que se traducen entre sí.</p>
+        <p>Como autor diseñó la Biblioteca Hermética, una pequeña línea editorial con filosofía propia —el escepticismo mágico—: profundidad sin humo y rigor sin cinismo, para quien ama el misterio y desconfía de las certezas fáciles. Con la novela <em>Ain Sof: El evangelio del demiurgo que nació hacia atrás</em> llevó esa misma indagación a la ficción.</p>
+        <p>Cuando no escribe, compone música —del jazz contemporáneo al bolero y la guitarra eléctrica— y desarrolla software. Cree que el misterio no necesita mentir, que un símbolo bien leído ordena la atención mejor que cualquier promesa, y que se puede estudiar lo invisible sin apagar el incienso ni cerrar las ventanas.</p>
+        <p>Vive en Ciudad de México.</p>
+      </div>
     </div>
+    <button class="more-btn" id="bioBtn" type="button" aria-expanded="false" aria-controls="bioMore">Ver más ▾</button>
     <nav class="links" style="margin-top: 14px;">
       <a class="link accent-red" href="https://asociacionmontessori.com.mx" target="_blank" rel="noopener">
         <span class="icon" aria-hidden="true">
@@ -706,6 +710,19 @@
         if (show) box.removeAttribute('hidden'); else box.setAttribute('hidden', '');
         btn.setAttribute('aria-expanded', String(show));
         btn.textContent = show ? 'Ver menos ▴' : 'Ver 4 títulos en preparación ▾';
+      });
+    })();
+
+    /* Toggle "Ver más" de la bio */
+    (function () {
+      const btn = document.getElementById('bioBtn');
+      const box = document.getElementById('bioMore');
+      if (!btn || !box) return;
+      btn.addEventListener('click', () => {
+        const show = box.hasAttribute('hidden');
+        if (show) box.removeAttribute('hidden'); else box.setAttribute('hidden', '');
+        btn.setAttribute('aria-expanded', String(show));
+        btn.textContent = show ? 'Ver menos ▴' : 'Ver más ▾';
       });
     })();
 
