@@ -165,10 +165,10 @@ const ALBUMS = [
       { title: "Dos Gardenias", src: "assets/music/los-ponchos/1-04-dos-gardenias.mp3", youtube: "https://youtu.be/t9QBdjlkyAQ", pub: "2026-07-02T19:00" },
       { title: "Almohada", src: "assets/music/los-ponchos/1-05-almohada.mp3", youtube: "https://youtu.be/F45kshFFCVM", pub: "2026-07-03T19:00" },
       { title: "Alma Corazón y Vida", src: "assets/music/los-ponchos/1-06-alma-corazon-y-vida.mp3", youtube: "https://youtu.be/H2v-e6-d-xU", pub: "2026-07-04T19:00" },
-      { title: "Panchos 1", src: "assets/music/los-ponchos/1-07-panchos-1.mp3" },
-      { title: "Inolvidable", src: "assets/music/los-ponchos/1-08-inolvidable.mp3" },
-      { title: "Panchos 2", src: "assets/music/los-ponchos/1-09-panchos-2.mp3" },
-      { title: "Nuestro Juramento", src: "assets/music/los-ponchos/1-10-nuestro-juramento.mp3" }
+      { title: "Panchos 1", src: "assets/music/los-ponchos/1-07-panchos-1.mp3", youtube: "https://youtu.be/PsmrO7NkdHQ", pub: "2026-07-05T19:00" },
+      { title: "Inolvidable", src: "assets/music/los-ponchos/1-08-inolvidable.mp3", youtube: "https://youtu.be/YxIrQw5xNOw", pub: "2026-07-06T19:00" },
+      { title: "Panchos 2", src: "assets/music/los-ponchos/1-09-panchos-2.mp3", youtube: "https://youtu.be/Wo3nmzBWwQI", pub: "2026-07-07T19:00" },
+      { title: "Nuestro Juramento", src: "assets/music/los-ponchos/1-10-nuestro-juramento.mp3", youtube: "https://youtu.be/eqvJIpLYVvs", pub: "2026-07-08T19:00" }
     ]
   },
   {
