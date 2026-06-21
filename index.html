@@ -951,8 +951,14 @@
           '<span class="pl-ah-toggle" aria-hidden="true">▸</span>';
         main.querySelector('.pl-ah-title').textContent = al.title;
         const dur = ALBUM_DUR[al.title];
+        let durTxt = '';
+        if (dur) {
+          const p = dur.split(':').map(Number);
+          const sec = p.length === 3 ? p[0] * 3600 + p[1] * 60 + p[2] : p[0] * 60 + p[1];
+          durTxt = ' · ' + Math.max(1, Math.round(sec / 60)) + ' min';
+        }
         main.querySelector('.pl-ah-meta').textContent =
-          (al.meta ? al.meta + ' · ' : '') + count + (dur ? ' · ' + dur : '');
+          (al.meta ? al.meta + ' · ' : '') + count + durTxt;
         paintCover(main.querySelector('.pl-ah-cover'), al.cover);
 
         // Botón reproducir álbum: arranca desde la 1.ª pista
