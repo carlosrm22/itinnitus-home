@@ -98,7 +98,15 @@ Lo que NO va a tiendas (Los Ponchos, Cantina Bar, Bésame Chucho, Balada para un
 se publicará en **YouTube** con un video sencillo (portada + audio, generado en lote con
 ffmpeg). Pendiente, "al final". Sin riesgo de cuenta (a lo más, Content ID redirige el anuncio).
 
-## Pendientes / siguientes originales para distribuir
-- Tramonto (jazz contemporáneo · Aurelio Cuello)
-- Ares, La Tierra desde Marte, Primates Cósmicos, Carnevalle, El Carro, Trifase
-- El Gran Río
+## El resto — PREPARADOS 2026-06-20 (listos para subir)
+Cada uno con sus MP3 320/44.1, portada 3000 y `METADATOS RouteNote.txt` en su carpeta:
+- **La Tierra desde Marte** (EP, 5) — instrumental, Content ID OFF. Género a confirmar (Electronic/Soundtrack).
+- **Primates Cósmicos** (Álbum, 8) — instrumental meditativo, Content ID OFF. Género a confirmar (New Age/Ambient).
+- **Carnevalle** (EP, 4) — piano y cuerdas, Content ID OFF. Género a confirmar (Classical/Soundtrack).
+- **El Carro** (Álbum, 8) — CANCIONES CON VOZ (Español, con letra). Content ID OFF (decisión de Carlos; sería elegible). Género a confirmar.
+- **Trifase** (EP, 5) — SIN "Cantina Bar". Rock experimental instrumental, Content ID OFF. Género a confirmar (Rock).
+
+Géneros pendientes de confirmar con Carlos (ver "CONFIRMAR" en cada METADATOS).
+
+## Pendiente aparte
+- **El Gran Río** — falta decidir; se distribuye solo con originales (sin Bésame Chucho, Balada para un loko, Reflejo).
