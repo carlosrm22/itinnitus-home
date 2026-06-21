@@ -1,5 +1,23 @@
 # Distribución en RouteNote
 
+## ✅ ESTADO 2026-06-20 — 10 RELEASES EN REVISIÓN (In Review)
+1. Maat encarnada — Single
+2. La Multiplicación de los Peces — EP
+3. El Dios sin manos — Álbum
+4. Ares — Single
+5. Tramonto — Álbum (Carlos Romero & Aurelio Cuello)
+6. La Tierra desde Marte — EP
+7. Primates Cósmicos — Álbum
+8. Carnevalle — EP
+9. El Carro — Álbum
+10. Trifase — EP (sin Cantina Bar)
+
+Todos: Content ID OFF, YouTube Music + todas las tiendas, worldwide, label iTinnitus.
+Pendiente: que pasen a "Live" → recoger enlaces de Spotify para embeber/enlazar en el sitio.
+Covers/adaptaciones (Los Ponchos, Cantina Bar, Bésame Chucho, Balada para un loko, Reflejo): solo YouTube.
+
+
+
 Plan **Free** (85% de regalías, sin costo). **Solo se distribuye material 100% original.**
 Covers y adaptaciones (obras derivadas) NO van a tiendas — solo sitio + YouTube
 (ahí, a lo más, un reclamo de Content ID; sin riesgo de cuenta).
