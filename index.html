@@ -832,7 +832,7 @@
         cover: "assets/music/covers/el-carro.jpg",
         tracks: [
           { title: "No hay fe", src: "assets/music/el-carro/el-carro-01.mp3" },
-          { title: "Apenas ayer", src: "assets/music/el-carro/el-carro-02.mp3" },
+          { title: "Ayer fue mañana", src: "assets/music/el-carro/el-carro-02.mp3" },
           { title: "Lo que quedó", src: "assets/music/el-carro/el-carro-03.mp3" },
           { title: "Yo no regalo dinero", src: "assets/music/el-carro/el-carro-04.mp3" },
           { title: "Falta el aire", src: "assets/music/el-carro/el-carro-05.mp3" },
@@ -910,6 +910,24 @@
       const audio = new Audio();
       audio.preload = "metadata";
 
+      // Duración total por álbum (precalculada; actualizar si cambian las pistas)
+      const ALBUM_DUR = {
+        "Maat encarnada": "2:55",
+        "La Tierra desde Marte": "29:35",
+        "La Multiplicación de los Peces": "48:11",
+        "Tramonto": "30:24",
+        "Ares": "8:21",
+        "El Dios sin manos": "27:50",
+        "Trifase": "22:08",
+        "El Gran Río": "21:01",
+        "Primates Cósmicos": "19:31",
+        "El Carro": "23:11",
+        "Carnevalle": "12:21",
+        "Los Ponchos · Vol. 1": "36:05",
+        "Los Ponchos · Vol. 2": "41:26",
+        "Amor Pirata y otros amores clandestinos": "24:38"
+      };
+
       // Cola continua a partir de los álbumes (cada pista recuerda su álbum)
       const QUEUE = [];
       ALBUMS.forEach(al => al.tracks.forEach(t => QUEUE.push({ t, al })));
@@ -980,7 +998,9 @@
           '<span class="pl-ah-meta"></span></span>' +
           '<span class="pl-ah-toggle" aria-hidden="true">▸</span>';
         main.querySelector('.pl-ah-title').textContent = al.title;
-        main.querySelector('.pl-ah-meta').textContent = (al.meta ? al.meta + ' · ' : '') + count;
+        const dur = ALBUM_DUR[al.title];
+        main.querySelector('.pl-ah-meta').textContent =
+          (al.meta ? al.meta + ' · ' : '') + count + (dur ? ' · ' + dur : '');
         paintCover(main.querySelector('.pl-ah-cover'), al.cover);
 
         // Botón reproducir álbum: arranca desde la 1.ª pista
