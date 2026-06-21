@@ -78,6 +78,11 @@ Carpeta: `~/Música/Carlos Romero/Originales para RouteNote/La Multiplicacion de
 - Instrumental → **Content ID OFF**, YouTube Music + todas, worldwide.
 - Detalle completo en su `METADATOS RouteNote.txt`.
 
+## Pendiente futuro: YouTube para covers/adaptaciones
+Lo que NO va a tiendas (Los Ponchos, Cantina Bar, Bésame Chucho, Balada para un loko, Reflejo)
+se publicará en **YouTube** con un video sencillo (portada + audio, generado en lote con
+ffmpeg). Pendiente, "al final". Sin riesgo de cuenta (a lo más, Content ID redirige el anuncio).
+
 ## Pendientes / siguientes originales para distribuir
 - Tramonto (jazz contemporáneo · Aurelio Cuello)
 - Ares, La Tierra desde Marte, Primates Cósmicos, Carnevalle, El Carro, Trifase
