@@ -71,7 +71,7 @@ const ALBUMS = [
       { title: "Obertura", src: "assets/music/carnevalle/carnevalle-01.mp3", youtube: "https://youtu.be/_Gh-Tb1Ek3c", pub: "2026-08-06T19:00" },
       { title: "Mascarada", src: "assets/music/carnevalle/carnevalle-02.mp3", youtube: "https://youtu.be/lcTm4clxTwk", pub: "2026-08-07T19:00" },
       { title: "Arlequín", src: "assets/music/carnevalle/carnevalle-03.mp3", youtube: "https://youtu.be/8xXcrTNTjXo", pub: "2026-08-08T19:00" },
-      { title: "La commedia è finita", src: "assets/music/carnevalle/carnevalle-04.mp3", youtube: "https://youtu.be/NN9sgGc9zP4", pub: "2026-08-09T19:00" }
+      { title: "La commedia è finita", src: "assets/music/carnevalle/carnevalle-04.mp3?v=2", youtube: "https://youtu.be/NN9sgGc9zP4", pub: "2026-08-09T19:00" }
     ]
   },
   {
@@ -161,7 +161,8 @@ const ALBUMS = [
     title: "Trifase",
     meta: "Rock experimental · tres guitarras eléctricas · Carlos Romero",
     cover: "assets/music/covers/trifase.jpg",
-    // Falta URL de playlist de Trifase (agregar cuando la tengas).
+    playlist: "https://www.youtube.com/playlist?list=PLTomVcRsp05a9DhoEwmWGBOxtVlURHgob",
+    playlistPub: "2026-09-17T19:00",
     tracks: [
       { title: "Cortocircuito", src: "assets/music/guitarras/guitarras-01.m4a", youtube: "https://youtu.be/vUU2rrPZojg", pub: "2026-09-17T19:00" },
       { title: "Feedback", src: "assets/music/guitarras/guitarras-02.m4a", youtube: "https://youtu.be/igc1AIoZvw8", pub: "2026-09-18T19:00" },
@@ -244,7 +245,7 @@ const ALBUM_DUR = {
   "El Gran Río": "21:01",
   "Primates Cósmicos": "19:31",
   "El Carro": "23:11",
-  "Carnevalle": "12:21",
+  "Carnevalle": "11:45",
   "Los Ponchos · Vol. 1": "36:05",
   "Los Ponchos · Vol. 2": "41:26",
   "Amor Pirata y otros amores clandestinos": "24:38"
