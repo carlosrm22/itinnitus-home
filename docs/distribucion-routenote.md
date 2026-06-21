@@ -48,6 +48,9 @@ pero si consigues una exportación mejor, conviene resubir.
 
 ## El Dios sin manos (Álbum, 10 pistas) — preparado 2026-06-20
 
+> **Estado:** ENVIADO a RouteNote el 2026-06-20 — "In Review". Género New Age/Ambient,
+> Label iTinnitus, Content ID desactivado, YouTube Music + todas las tiendas, worldwide.
+
 Carpeta: `~/Música/Carlos Romero/Originales para RouteNote/El Dios sin manos/`
 - Audio: `01..10 *.mp3` (MP3 320 kbps / 44.1 kHz, en orden)
 - Portada: `El Dios sin manos - portada 3000.jpg` (3000×3000)
