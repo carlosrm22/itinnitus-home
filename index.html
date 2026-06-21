@@ -466,6 +466,15 @@
     .section-nav a:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-1px); }
     .section-label { scroll-margin-top: 14px; }
 
+    /* Videos de YouTube */
+    .videos { display: grid; gap: 12px; margin: 0 0 14px; }
+    .video {
+      position: relative; aspect-ratio: 16 / 9;
+      border-radius: 12px; overflow: hidden;
+      background: #000; box-shadow: var(--shadow);
+    }
+    .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
     /* Footer */
     footer {
       margin-top: 44px;
@@ -614,6 +623,28 @@
 
       <div class="pl-list" id="plList"></div>
     </section>
+
+    <p class="sub-label">Videos</p>
+    <div class="videos">
+      <div class="video">
+        <iframe src="https://www.youtube-nocookie.com/embed/HmGHaP-l4wI" title="Video de Carlos Romero" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+        <iframe src="https://www.youtube-nocookie.com/embed/9twtmlnR5S8" title="Video de Carlos Romero" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+    <nav class="links">
+      <a class="link accent-red" href="https://www.youtube.com/@tinnituscarlos" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.5A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.5a2.5 2.5 0 0 0 1.8-1.8C23 15.2 23 12 23 12zM9.8 15.3V8.7l5.7 3.3z"/></svg>
+        </span>
+        <span class="body">
+          <span class="title">Mi canal de YouTube</span>
+          <span class="sub">@tinnituscarlos</span>
+        </span>
+        <span class="chev" aria-hidden="true">→</span>
+      </a>
+    </nav>
 
     <!-- ============ PROYECTOS / CÓDIGO ============ -->
     <p class="section-label" id="codigo">Código</p>
@@ -809,17 +840,17 @@
         ]
       },
       {
-        title: "Trifásico",
-        meta: "Tres guitarras eléctricas · Carlos Romero",
+        title: "Trifase",
+        meta: "Rock experimental · tres guitarras eléctricas · Carlos Romero",
         cover: null,
-        // TODO: portada y títulos reales de pistas (provisional: nombre de álbum y "Pista N")
+        // TODO: portada pendiente
         tracks: [
-          { title: "Pista 1", src: "assets/music/guitarras/guitarras-01.m4a" },
-          { title: "Pista 2", src: "assets/music/guitarras/guitarras-02.m4a" },
-          { title: "Pista 3", src: "assets/music/guitarras/guitarras-03.m4a" },
-          { title: "Pista 4", src: "assets/music/guitarras/guitarras-04.m4a" },
-          { title: "Pista 5", src: "assets/music/guitarras/guitarras-05.m4a" },
-          { title: "Pista 6", src: "assets/music/guitarras/guitarras-06.m4a" }
+          { title: "Cortocircuito", src: "assets/music/guitarras/guitarras-01.m4a" },
+          { title: "Feedback", src: "assets/music/guitarras/guitarras-02.m4a" },
+          { title: "Trémolo", src: "assets/music/guitarras/guitarras-03.m4a" },
+          { title: "Distorsión armónica", src: "assets/music/guitarras/guitarras-04.m4a" },
+          { title: "Sobrecarga", src: "assets/music/guitarras/guitarras-05.m4a" },
+          { title: "Cantina Bar", src: "assets/music/guitarras/guitarras-06.m4a" }
         ]
       },
       {
