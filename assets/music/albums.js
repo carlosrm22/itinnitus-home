@@ -21,12 +21,14 @@ const ALBUMS = [
     title: "La Tierra desde Marte",
     meta: "Electrónica · Carlos Romero",
     cover: "assets/music/covers/tierra-desde-marte.jpg",
+    playlist: "https://www.youtube.com/playlist?list=PLTomVcRsp05ZickKPR7BaLK1_TJKRoHhn",
+    playlistPub: "2026-07-20T19:00",
     tracks: [
-      { title: "Monte Olimpo", src: "assets/music/tierra-desde-marte/tdm-01.m4a" },
-      { title: "Camino a la Tierra", src: "assets/music/tierra-desde-marte/tdm-02.m4a" },
-      { title: "Martian Atack!", src: "assets/music/tierra-desde-marte/tdm-03.m4a" },
-      { title: "687 días", src: "assets/music/tierra-desde-marte/tdm-04.m4a" },
-      { title: "El marciano enamorado", src: "assets/music/tierra-desde-marte/tdm-05.m4a" }
+      { title: "Monte Olimpo", src: "assets/music/tierra-desde-marte/tdm-01.m4a", youtube: "https://youtu.be/IsZyTAzFZDQ", pub: "2026-07-20T19:00" },
+      { title: "Camino a la Tierra", src: "assets/music/tierra-desde-marte/tdm-02.m4a", youtube: "https://youtu.be/DTKd4CfFrws", pub: "2026-07-21T19:00" },
+      { title: "Martian Atack!", src: "assets/music/tierra-desde-marte/tdm-03.m4a", youtube: "https://youtu.be/xaJ_vyF19CU", pub: "2026-07-22T19:00" },
+      { title: "687 días", src: "assets/music/tierra-desde-marte/tdm-04.m4a", youtube: "https://youtu.be/LZ8Y_5rUYpc", pub: "2026-07-23T19:00" },
+      { title: "El marciano enamorado", src: "assets/music/tierra-desde-marte/tdm-05.m4a", youtube: "https://youtu.be/Xmumoj7rYlk", pub: "2026-07-24T19:00" }
     ]
   },
   {
