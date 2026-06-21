@@ -59,8 +59,14 @@ Carpeta: `~/Música/Carlos Romero/Originales para RouteNote/El Dios sin manos/`
 - **Content ID: DESACTIVADO** (instrumental). Sí marcar YouTube Music + resto de tiendas.
 - Pistas y orden: ver `METADATOS RouteNote.txt` en esa carpeta.
 
+## La Multiplicación de los Peces (Álbum, 5 pistas) — preparado 2026-06-20
+
+Carpeta: `~/Música/Carlos Romero/Originales para RouteNote/La Multiplicacion de los Peces/`
+- Audio `01..05 *.mp3` (MP3 320/44.1) + portada 3000. Label iTinnitus. Género Jazz (contemporáneo).
+- Instrumental → **Content ID OFF**, YouTube Music + todas, worldwide.
+- Detalle completo en su `METADATOS RouteNote.txt`.
+
 ## Pendientes / siguientes originales para distribuir
-- La Multiplicación de los Peces (jazz contemporáneo)
 - Tramonto (jazz contemporáneo · Aurelio Cuello)
 - Ares, La Tierra desde Marte, Primates Cósmicos, Carnevalle, El Carro, Trifase
 - El Gran Río
