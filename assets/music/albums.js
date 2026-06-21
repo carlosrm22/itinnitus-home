@@ -144,15 +144,17 @@ const ALBUMS = [
     title: "El Carro",
     meta: "Guitarra acústica · Carlos Romero",
     cover: "assets/music/covers/el-carro.jpg",
+    playlist: "https://www.youtube.com/playlist?list=PLTomVcRsp05alsdV_XTNRmAHW5eZInygT",
+    playlistPub: "2026-09-09T19:00",
     tracks: [
-      { title: "No hay fe", src: "assets/music/el-carro/el-carro-01.mp3" },
-      { title: "Ayer fue mañana", src: "assets/music/el-carro/el-carro-02.mp3" },
-      { title: "Lo que quedó", src: "assets/music/el-carro/el-carro-03.mp3" },
-      { title: "Yo no regalo dinero", src: "assets/music/el-carro/el-carro-04.mp3" },
-      { title: "Falta el aire", src: "assets/music/el-carro/el-carro-05.mp3" },
-      { title: "El 4", src: "assets/music/el-carro/el-carro-06.mp3" },
-      { title: "Alambra", src: "assets/music/el-carro/el-carro-07.mp3" },
-      { title: "El Carro", src: "assets/music/el-carro/el-carro-08.mp3" }
+      { title: "No hay fe", src: "assets/music/el-carro/el-carro-01.mp3", youtube: "https://youtu.be/fjg6u90poYY", pub: "2026-09-09T19:00" },
+      { title: "Ayer fue mañana", src: "assets/music/el-carro/el-carro-02.mp3", youtube: "https://youtu.be/N5El66XFsEw", pub: "2026-09-10T19:00" },
+      { title: "Lo que quedó", src: "assets/music/el-carro/el-carro-03.mp3", youtube: "https://youtu.be/dCS-gXuMDLw", pub: "2026-09-11T19:00" },
+      { title: "Yo no regalo dinero", src: "assets/music/el-carro/el-carro-04.mp3", youtube: "https://youtu.be/0KcR933H1po", pub: "2026-09-12T19:00" },
+      { title: "Falta el aire", src: "assets/music/el-carro/el-carro-05.mp3", youtube: "https://youtu.be/1VRCXBDBOqA", pub: "2026-09-13T19:00" },
+      { title: "El 4", src: "assets/music/el-carro/el-carro-06.mp3", youtube: "https://youtu.be/VPUudkuQ0v0", pub: "2026-09-14T19:00" },
+      { title: "Alambra", src: "assets/music/el-carro/el-carro-07.mp3", youtube: "https://youtu.be/UzpXUFjZJDg", pub: "2026-09-15T19:00" },
+      { title: "El Carro", src: "assets/music/el-carro/el-carro-08.mp3", youtube: "https://youtu.be/Hvv8hFvAO1o", pub: "2026-09-16T19:00" }
     ]
   },
   {
