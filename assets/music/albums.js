@@ -125,15 +125,17 @@ const ALBUMS = [
     title: "Primates Cósmicos",
     meta: "Instrumental meditativo · Carlos Romero",
     cover: "assets/music/covers/primates-cosmicos.jpg",
+    playlist: "https://www.youtube.com/playlist?list=PLTomVcRsp05Zy0bsckYfa4huS9AioIkE5",
+    playlistPub: "2026-08-23T19:00",
     tracks: [
-      { title: "Sueño primordial", src: "assets/music/primates-cosmicos/primates-01.mp3" },
-      { title: "Sinapsis", src: "assets/music/primates-cosmicos/primates-03.mp3" },
-      { title: "De pie", src: "assets/music/primates-cosmicos/primates-04.mp3" },
-      { title: "Domesticar al sol", src: "assets/music/primates-cosmicos/primates-05.mp3" },
-      { title: "Lengua madre", src: "assets/music/primates-cosmicos/primates-06.mp3" },
-      { title: "Astrónomo de piedra", src: "assets/music/primates-cosmicos/primates-07.mp3" },
-      { title: "Volver al árbol", src: "assets/music/primates-cosmicos/primates-08.mp3" },
-      { title: "Monolito", src: "assets/music/primates-cosmicos/primates-02.mp3" }
+      { title: "Sueño primordial", src: "assets/music/primates-cosmicos/primates-01.mp3", youtube: "https://youtu.be/pVseZ29QdBo", pub: "2026-08-23T19:00" },
+      { title: "Sinapsis", src: "assets/music/primates-cosmicos/primates-03.mp3", youtube: "https://youtu.be/OjIQ0ePQfis", pub: "2026-08-24T19:00" },
+      { title: "De pie", src: "assets/music/primates-cosmicos/primates-04.mp3", youtube: "https://youtu.be/DG5DrpKV8lk", pub: "2026-08-25T19:00" },
+      { title: "Domesticar al sol", src: "assets/music/primates-cosmicos/primates-05.mp3", youtube: "https://youtu.be/WbpTzg_o_zQ", pub: "2026-08-26T19:00" },
+      { title: "Lengua madre", src: "assets/music/primates-cosmicos/primates-06.mp3", youtube: "https://youtu.be/I6Se5jCf-2I", pub: "2026-08-27T19:00" },
+      { title: "Astrónomo de piedra", src: "assets/music/primates-cosmicos/primates-07.mp3", youtube: "https://youtu.be/1c6eg2PCasM", pub: "2026-08-28T19:00" },
+      { title: "Volver al árbol", src: "assets/music/primates-cosmicos/primates-08.mp3", youtube: "https://youtu.be/voklFqDq_uI", pub: "2026-08-29T19:00" },
+      { title: "Monolito", src: "assets/music/primates-cosmicos/primates-02.mp3", youtube: "https://youtu.be/p4-uA9Lohrg", pub: "2026-08-30T19:00" }
     ]
   },
   {
