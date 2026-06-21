@@ -81,7 +81,7 @@ Carpeta: `~/Música/Carlos Romero/Originales para RouteNote/La Multiplicacion de
 - Instrumental → **Content ID OFF**, YouTube Music + todas, worldwide.
 - Detalle completo en su `METADATOS RouteNote.txt`.
 
-## Ares (Single, 3 pistas) — preparado 2026-06-20
+## Ares (Single, 3 pistas) — ENVIADO 2026-06-20 (In Review)
 
 Carpeta: `~/Música/Carlos Romero/Originales para RouteNote/Ares/`
 - `01 Fobos · 02 Deimos · 03 Marte` (MP3 320/44.1 nativos) + portada 3000. Label iTinnitus.
@@ -103,7 +103,7 @@ Cada uno con sus MP3 320/44.1, portada 3000 y `METADATOS RouteNote.txt` en su ca
 - **La Tierra desde Marte** (EP, 5) — instrumental, Content ID OFF. Género a confirmar (Electronic/Soundtrack).
 - **Primates Cósmicos** (Álbum, 8) — instrumental meditativo, Content ID OFF. Género a confirmar (New Age/Ambient).
 - **Carnevalle** (EP, 4) — piano y cuerdas, Content ID OFF. Género a confirmar (Classical/Soundtrack).
-- **El Carro** (Álbum, 8) — CANCIONES CON VOZ (Español, con letra). Content ID OFF (decisión de Carlos; sería elegible). Género a confirmar.
+- **El Carro** (Álbum, 8) — INSTRUMENTAL (guitarra acústica). Content ID OFF. Género a confirmar (Acoustic/Folk/Latin).
 - **Trifase** (EP, 5) — SIN "Cantina Bar". Rock experimental instrumental, Content ID OFF. Género a confirmar (Rock).
 
 Géneros pendientes de confirmar con Carlos (ver "CONFIRMAR" en cada METADATOS).
