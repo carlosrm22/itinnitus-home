@@ -90,17 +90,19 @@ const ALBUMS = [
     title: "El Dios sin manos",
     meta: "Instrumental atmosférico · Carlos Romero",
     cover: "assets/music/covers/el-dios-sin-manos.jpg?v=2",
+    playlist: "https://www.youtube.com/playlist?list=PLTomVcRsp05YpVARWP8WO8WTJK5cIxIYo",
+    playlistPub: "2026-08-13T19:00",
     tracks: [
-      { title: "El Dios sin manos", src: "assets/music/el-dios-sin-manos/dios-01.m4a" },
-      { title: "Vacío ruidoso", src: "assets/music/el-dios-sin-manos/dios-02.m4a" },
-      { title: "Ain Sof", src: "assets/music/el-dios-sin-manos/dios-03.m4a" },
-      { title: "Scintilla", src: "assets/music/el-dios-sin-manos/dios-04.m4a" },
-      { title: "Prima lux", src: "assets/music/el-dios-sin-manos/dios-05.m4a" },
-      { title: "Ogruimed", src: "assets/music/el-dios-sin-manos/dios-06.m4a" },
-      { title: "Crisol", src: "assets/music/el-dios-sin-manos/dios-07.m4a" },
-      { title: "Espiral (Mija Jivori)", src: "assets/music/el-dios-sin-manos/dios-08.m4a" },
-      { title: "Un verbo", src: "assets/music/el-dios-sin-manos/dios-09.m4a" },
-      { title: "Silencio habitado", src: "assets/music/el-dios-sin-manos/dios-10.m4a" }
+      { title: "El Dios sin manos", src: "assets/music/el-dios-sin-manos/dios-01.m4a", youtube: "https://youtu.be/Sc6p_uU4beM", pub: "2026-08-13T19:00" },
+      { title: "Vacío ruidoso", src: "assets/music/el-dios-sin-manos/dios-02.m4a", youtube: "https://youtu.be/MzJy2rs4l_4", pub: "2026-08-14T19:00" },
+      { title: "Ain Sof", src: "assets/music/el-dios-sin-manos/dios-03.m4a", youtube: "https://youtu.be/zjt_Wrw1FdU", pub: "2026-08-15T19:00" },
+      { title: "Scintilla", src: "assets/music/el-dios-sin-manos/dios-04.m4a", youtube: "https://youtu.be/iYE0xNKAlVw", pub: "2026-08-16T19:00" },
+      { title: "Prima lux", src: "assets/music/el-dios-sin-manos/dios-05.m4a", youtube: "https://youtu.be/oocGGUNTJAA", pub: "2026-08-17T19:00" },
+      { title: "Ogruimed", src: "assets/music/el-dios-sin-manos/dios-06.m4a", youtube: "https://youtu.be/Yfn4xCFcQLQ", pub: "2026-08-18T19:00" },
+      { title: "Crisol", src: "assets/music/el-dios-sin-manos/dios-07.m4a", youtube: "https://youtu.be/5t6rrO6SLCM", pub: "2026-08-19T19:00" },
+      { title: "Espiral (Mija Jivori)", src: "assets/music/el-dios-sin-manos/dios-08.m4a", youtube: "https://youtu.be/7xL81qzfG-s", pub: "2026-08-20T19:00" },
+      { title: "Un verbo", src: "assets/music/el-dios-sin-manos/dios-09.m4a", youtube: "https://youtu.be/VYCRRMdNHTI", pub: "2026-08-21T19:00" },
+      { title: "Silencio habitado", src: "assets/music/el-dios-sin-manos/dios-10.m4a", youtube: "https://youtu.be/_Yhav8YKwAI", pub: "2026-08-22T19:00" }
     ]
   },
   {
