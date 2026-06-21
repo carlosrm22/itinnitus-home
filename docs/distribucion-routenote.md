@@ -93,6 +93,12 @@ Carpeta: `~/Música/Carlos Romero/Originales para RouteNote/Tramonto/`
 - **Artista principal: Carlos Romero** (arreglo/producción). **Contributors:** Aurelio Cuello (Performer/Composer) + Carlos (Composer/Arranger/Producer). Con permiso de Aurelio.
 - Instrumental → **Content ID OFF**. Detalle en su METADATOS.
 
+## Pendiente futuro: álbum desde MIDI (maquetas)
+Hay piezas que podrían ser otro álbum, pero están en **MIDI** (maquetas). No grabar ni usar
+Suno/Udio (no respetan la obra). Plan: **render fiel** del MIDI con buenos instrumentos.
+Opción rápida acordada: **FluidSynth + SoundFont** (p. ej. Salamander Grand para piano) aquí en la
+máquina como primer render → luego masterizar (Matchering gratis). Pendiente — Carlos avisará cuándo.
+
 ## Pendiente futuro: YouTube para covers/adaptaciones
 Lo que NO va a tiendas (Los Ponchos, Cantina Bar, Bésame Chucho, Balada para un loko, Reflejo)
 se publicará en **YouTube** con un video sencillo (portada + audio, generado en lote con
