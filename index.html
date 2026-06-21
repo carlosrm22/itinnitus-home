@@ -417,6 +417,40 @@
     .pl-atracks.collapsed { display: none; }
     .pl-atracks .pl-track:last-child { border-bottom: none; }
 
+    /* Mosaico de portadas (índice visual de álbumes) */
+    .pl-mosaic {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(74px, 1fr));
+      gap: 10px;
+      margin: 0 0 16px;
+    }
+    .pl-tile {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      border: none; padding: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      background: linear-gradient(135deg, rgba(29,113,184,.20), rgba(255,222,0,.18));
+      box-shadow: var(--shadow);
+      transition: transform .14s ease, box-shadow .14s ease;
+    }
+    .pl-tile:hover, .pl-tile:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0,0,0,.32);
+      outline: none;
+    }
+    .pl-tile-art { position: absolute; inset: 0; display: grid; place-items: center; color: var(--blue); }
+    .pl-tile-art img { width: 100%; height: 100%; object-fit: cover; }
+    .pl-tile-art svg { width: 26px; height: 26px; }
+    .pl-tile-play {
+      position: absolute; inset: 0; display: grid; place-items: center;
+      background: rgba(0,0,0,.34); opacity: 0; transition: opacity .14s ease;
+    }
+    .pl-tile:hover .pl-tile-play, .pl-tile:focus-visible .pl-tile-play { opacity: 1; }
+    .pl-tile-play svg { width: 26px; height: 26px; fill: #fff; }
+    .pl-tile.active { outline: 2px solid var(--blue); outline-offset: 2px; }
+
     /* Navegación por secciones (chips de anclaje) */
     .section-nav {
       display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
@@ -533,6 +567,7 @@
 
     <!-- ============ MÚSICA ============ -->
     <p class="section-label" id="musica">Música</p>
+    <div class="pl-mosaic" id="plMosaic" aria-label="Álbumes — toca uno para reproducirlo"></div>
     <section class="player" id="player" aria-label="Reproductor de música">
       <div class="pl-now">
         <div class="pl-art" id="plArt" aria-hidden="true">
@@ -844,10 +879,24 @@
 
       // Construir la lista agrupada por álbum (colapsable + botón reproducir álbum)
       const qWrap = [];
+      const qTile = [];
+      const mosaicEl = el('plMosaic');
       let qi = 0;
       ALBUMS.forEach((al, ai) => {
         const startIdx = qi;
         const count = al.tracks.length + (al.tracks.length === 1 ? ' pista' : ' pistas');
+
+        // Mosaico: una portada por álbum (toca = reproduce ese álbum)
+        const tile = document.createElement('button');
+        tile.type = 'button';
+        tile.className = 'pl-tile';
+        tile.title = al.title;
+        tile.setAttribute('aria-label', 'Reproducir ' + al.title);
+        tile.innerHTML = '<span class="pl-tile-art"></span>' +
+          '<span class="pl-tile-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>';
+        paintCover(tile.querySelector('.pl-tile-art'), al.cover);
+        tile.addEventListener('click', () => load(startIdx, true));
+        mosaicEl.appendChild(tile);
 
         const head = document.createElement('div');
         head.className = 'pl-ahead' + (ai === 0 ? ' open' : '');
@@ -912,6 +961,7 @@
           wrap.appendChild(row);
           rowEls.push(row);
           qWrap.push({ head, wrap, main });
+          qTile.push(tile);
         });
 
         listEl.appendChild(head);
@@ -940,6 +990,8 @@
           w.head.classList.add('open');
           w.main.setAttribute('aria-expanded', 'true');
         }
+        for (const tl of mosaicEl.children) tl.classList.remove('active');
+        if (qTile[i]) qTile[i].classList.add('active');
         if (play) audio.play().catch(() => {});
       }
 
