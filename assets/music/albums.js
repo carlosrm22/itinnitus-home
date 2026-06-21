@@ -109,16 +109,18 @@ const ALBUMS = [
     title: "El Gran Río",
     meta: "Instrumental meditativo · Carlos Romero",
     cover: "assets/music/covers/el-gran-rio.jpg",
+    playlist: "https://www.youtube.com/playlist?list=PLTomVcRsp05ZpCdBACg84EE5Bei18cadU",
+    playlistPub: "2026-08-31T19:00",
     tracks: [
-      { title: "Aglaya", src: "assets/music/el-gran-rio/gran-rio-01.mp3" },
-      { title: "Remanso", src: "assets/music/el-gran-rio/gran-rio-02.mp3" },
-      { title: "Balada para un loko", src: "assets/music/el-gran-rio/gran-rio-03.mp3" },
-      { title: "Ribera", src: "assets/music/el-gran-rio/gran-rio-09.mp3" },
-      { title: "Bésame Chucho", src: "assets/music/el-gran-rio/gran-rio-04.mp3" },
-      { title: "Bruma", src: "assets/music/el-gran-rio/gran-rio-05.mp3" },
-      { title: "Caudal", src: "assets/music/el-gran-rio/gran-rio-07.mp3" },
-      { title: "Meandro", src: "assets/music/el-gran-rio/gran-rio-06.mp3" },
-      { title: "Reflejo", src: "assets/music/el-gran-rio/gran-rio-08.mp3" }
+      { title: "Aglaya", src: "assets/music/el-gran-rio/gran-rio-01.mp3", youtube: "https://youtu.be/hAdF5waP0UQ", pub: "2026-08-31T19:00" },
+      { title: "Remanso", src: "assets/music/el-gran-rio/gran-rio-02.mp3", youtube: "https://youtu.be/2pqU0d7nBds", pub: "2026-09-01T19:00" },
+      { title: "Balada para un loko", src: "assets/music/el-gran-rio/gran-rio-03.mp3", youtube: "https://youtu.be/s5pHRCxe1tQ", pub: "2026-09-02T19:00" },
+      { title: "Ribera", src: "assets/music/el-gran-rio/gran-rio-09.mp3", youtube: "https://youtu.be/OKGgqBjeFsA", pub: "2026-09-03T19:00" },
+      { title: "Bésame Chucho", src: "assets/music/el-gran-rio/gran-rio-04.mp3", youtube: "https://youtu.be/jfjRUV7oxkg", pub: "2026-09-04T19:00" },
+      { title: "Bruma", src: "assets/music/el-gran-rio/gran-rio-05.mp3", youtube: "https://youtu.be/5oPsdNys3Lo", pub: "2026-09-05T19:00" },
+      { title: "Caudal", src: "assets/music/el-gran-rio/gran-rio-07.mp3", youtube: "https://youtu.be/kU8Y3lhLBmo", pub: "2026-09-06T19:00" },
+      { title: "Meandro", src: "assets/music/el-gran-rio/gran-rio-06.mp3", youtube: "https://youtu.be/_gMYENNmGM4", pub: "2026-09-07T19:00" },
+      { title: "Reflejo", src: "assets/music/el-gran-rio/gran-rio-08.mp3", youtube: "https://youtu.be/3T2uudlk5Pg", pub: "2026-09-08T19:00" }
     ]
   },
   {
