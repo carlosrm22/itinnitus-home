@@ -117,7 +117,7 @@ const ALBUMS = [
       { title: "Sueño primordial", src: "assets/music/primates-cosmicos/primates-01.mp3" },
       { title: "Sinapsis", src: "assets/music/primates-cosmicos/primates-03.mp3" },
       { title: "De pie", src: "assets/music/primates-cosmicos/primates-04.mp3" },
-      { title: "Domesticar el fuego", src: "assets/music/primates-cosmicos/primates-05.mp3" },
+      { title: "Domesticar al sol", src: "assets/music/primates-cosmicos/primates-05.mp3" },
       { title: "Lengua madre", src: "assets/music/primates-cosmicos/primates-06.mp3" },
       { title: "Astrónomo de piedra", src: "assets/music/primates-cosmicos/primates-07.mp3" },
       { title: "Volver al árbol", src: "assets/music/primates-cosmicos/primates-08.mp3" },
