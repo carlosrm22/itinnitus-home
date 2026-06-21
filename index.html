@@ -425,6 +425,88 @@
     .pl-atracks.collapsed { display: none; }
     .pl-atracks .pl-track:last-child { border-bottom: none; }
 
+    /* Menú contextual por pista (⋮) y cola "a continuación" */
+    .pl-kebab {
+      flex: 0 0 auto;
+      width: 30px; height: 30px; border-radius: 8px;
+      display: inline-grid; place-items: center;
+      background: none; border: none; color: var(--muted);
+      cursor: pointer; font-size: 1.15rem; line-height: 1;
+      transition: background .12s ease, color .12s ease;
+    }
+    .pl-kebab:hover { background: var(--bg-soft); color: var(--blue); }
+
+    .pl-menu {
+      position: fixed; z-index: 50;
+      min-width: 220px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 12px 32px rgba(0,0,0,.38);
+      padding: 6px;
+      display: flex; flex-direction: column;
+    }
+    .pl-menu[hidden] { display: none; }
+    .pl-menu button {
+      display: flex; align-items: center; gap: 10px;
+      width: 100%; padding: 10px 12px;
+      background: none; border: none; border-radius: 8px;
+      color: var(--text); font: inherit; font-size: .9rem;
+      text-align: left; cursor: pointer;
+    }
+    .pl-menu button:hover { background: var(--bg-soft); color: var(--blue); }
+    .pl-menu .mi { width: 18px; text-align: center; flex: 0 0 auto; font-size: .95rem; }
+
+    .pl-queue { border-top: 1px solid var(--border); background: var(--bg-soft); }
+    .pl-queue[hidden] { display: none; }
+    .pl-qhead {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 11px 18px;
+    }
+    .pl-qtitle {
+      font-size: .68rem; text-transform: uppercase; letter-spacing: .1em;
+      font-weight: 700; color: var(--muted);
+    }
+    .pl-qcount {
+      display: inline-grid; place-items: center;
+      min-width: 18px; height: 18px; padding: 0 5px;
+      margin-left: 6px; border-radius: 99px;
+      background: var(--blue); color: #fff;
+      font-size: .66rem; font-weight: 700; letter-spacing: 0;
+    }
+    .pl-qclear {
+      background: none; border: none; color: var(--muted);
+      font: inherit; font-size: .78rem; font-weight: 600; cursor: pointer;
+    }
+    .pl-qclear:hover { color: var(--red); }
+    .pl-qitem {
+      display: flex; align-items: center; gap: 12px;
+      width: 100%; padding: 9px 18px; cursor: pointer;
+      border-top: 1px solid var(--border);
+    }
+    .pl-qitem:hover { background: rgba(29,113,184,.06); }
+    .pl-qi-info { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
+    .pl-qi-name { font-weight: 600; font-size: .88rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pl-qi-al { font-size: .74rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pl-qi-rm {
+      flex: 0 0 auto; width: 28px; height: 28px; border-radius: 8px;
+      background: none; border: none; color: var(--muted);
+      cursor: pointer; font-size: .85rem;
+    }
+    .pl-qi-rm:hover { background: var(--bg-soft); color: var(--red); }
+
+    .pl-toast {
+      position: fixed; left: 50%; bottom: 24px;
+      transform: translateX(-50%) translateY(12px);
+      background: var(--blue); color: #fff;
+      padding: 10px 18px; border-radius: 99px;
+      font-size: .82rem; font-weight: 600;
+      box-shadow: 0 10px 28px rgba(0,0,0,.32);
+      opacity: 0; pointer-events: none; z-index: 60;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+    .pl-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
 
     /* Navegación por secciones (chips de anclaje) */
     .section-nav {
@@ -753,7 +835,7 @@
       },
       {
         title: "Ares",
-        meta: "Instrumental · Carlos Romero",
+        meta: "Quinteto de cuerdas · Carlos Romero",
         cover: "assets/music/covers/marte.jpg",
         tracks: [
           { title: "Fobos", src: "assets/music/marte/marte-01.mp3" },
@@ -1022,6 +1104,18 @@
             yt.addEventListener('click', e => e.stopPropagation());
             row.appendChild(yt);
           }
+          const kebab = document.createElement('span');
+          kebab.className = 'pl-kebab';
+          kebab.setAttribute('role', 'button');
+          kebab.setAttribute('tabindex', '0');
+          kebab.setAttribute('aria-haspopup', 'menu');
+          kebab.setAttribute('aria-label', 'Opciones de "' + t.title + '"');
+          kebab.textContent = '⋮';
+          kebab.addEventListener('click', e => { e.stopPropagation(); openMenu(idx, kebab); });
+          kebab.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); openMenu(idx, kebab); }
+          });
+          row.appendChild(kebab);
           row.addEventListener('click', () => { current === idx ? toggle() : load(idx, true); });
           wrap.appendChild(row);
           rowEls.push(row);
@@ -1062,9 +1156,108 @@
         audio.paused ? audio.play().catch(() => {}) : audio.pause();
       }
 
+      /* ---- Cola "reproducir a continuación" (estilo YouTube Music) ---- */
+      const upNext = [];
+
+      // Panel de cola, insertado sobre la lista de álbumes
+      const queuePanel = document.createElement('div');
+      queuePanel.className = 'pl-queue';
+      queuePanel.hidden = true;
+      queuePanel.innerHTML =
+        '<div class="pl-qhead"><span class="pl-qtitle">A continuación ' +
+        '<span class="pl-qcount">0</span></span>' +
+        '<button class="pl-qclear" type="button">Limpiar</button></div>' +
+        '<div class="pl-qlist"></div>';
+      listEl.parentNode.insertBefore(queuePanel, listEl);
+      const qCountEl = queuePanel.querySelector('.pl-qcount');
+      const qListEl = queuePanel.querySelector('.pl-qlist');
+      queuePanel.querySelector('.pl-qclear').addEventListener('click', () => {
+        upNext.length = 0; renderQueue();
+      });
+
+      function renderQueue() {
+        qCountEl.textContent = upNext.length;
+        if (!upNext.length) { queuePanel.hidden = true; qListEl.innerHTML = ''; return; }
+        queuePanel.hidden = false;
+        qListEl.innerHTML = '';
+        upNext.forEach((qIdx, k) => {
+          const { t, al } = QUEUE[qIdx];
+          const item = document.createElement('div');
+          item.className = 'pl-qitem';
+          item.innerHTML =
+            '<span class="pl-qi-info"><span class="pl-qi-name"></span>' +
+            '<span class="pl-qi-al"></span></span>' +
+            '<button class="pl-qi-rm" type="button" aria-label="Quitar de la cola">✕</button>';
+          item.querySelector('.pl-qi-name').textContent = t.title;
+          item.querySelector('.pl-qi-al').textContent = al.title;
+          item.addEventListener('click', () => { upNext.splice(k, 1); renderQueue(); load(qIdx, true); });
+          item.querySelector('.pl-qi-rm').addEventListener('click', e => {
+            e.stopPropagation(); upNext.splice(k, 1); renderQueue();
+          });
+          qListEl.appendChild(item);
+        });
+      }
+
+      // Menú contextual por pista
+      const menu = document.createElement('div');
+      menu.className = 'pl-menu';
+      menu.setAttribute('role', 'menu');
+      menu.hidden = true;
+      menu.innerHTML =
+        '<button type="button" role="menuitem" data-act="now"><span class="mi">▸</span>Reproducir ahora</button>' +
+        '<button type="button" role="menuitem" data-act="next"><span class="mi">⏭</span>Reproducir a continuación</button>' +
+        '<button type="button" role="menuitem" data-act="queue"><span class="mi">＋</span>Agregar a la cola</button>';
+      document.body.appendChild(menu);
+      let menuTarget = -1;
+
+      function openMenu(idx, anchor) {
+        menuTarget = idx;
+        menu.hidden = false;
+        const r = anchor.getBoundingClientRect();
+        const mw = menu.offsetWidth, mh = menu.offsetHeight;
+        const left = Math.max(8, Math.min(r.right - mw, window.innerWidth - mw - 8));
+        let top = r.bottom + 6;
+        if (top + mh > window.innerHeight - 8) top = Math.max(8, r.top - mh - 6);
+        menu.style.left = left + 'px';
+        menu.style.top = top + 'px';
+      }
+      function closeMenu() { menu.hidden = true; menuTarget = -1; }
+      menu.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+        if (menuTarget < 0) return;
+        const act = b.dataset.act;
+        if (act === 'now') load(menuTarget, true);
+        else if (act === 'next') { upNext.unshift(menuTarget); renderQueue(); toast('Se reproducirá a continuación'); }
+        else { upNext.push(menuTarget); renderQueue(); toast('Agregada a la cola'); }
+        closeMenu();
+      }));
+      document.addEventListener('click', e => {
+        if (menu.hidden) return;
+        if (menu.contains(e.target) || e.target.closest('.pl-kebab')) return;
+        closeMenu();
+      });
+
+      // Toast breve de confirmación
+      const toastEl = document.createElement('div');
+      toastEl.className = 'pl-toast';
+      toastEl.setAttribute('role', 'status');
+      document.body.appendChild(toastEl);
+      let toastTimer;
+      function toast(msg) {
+        toastEl.textContent = msg;
+        toastEl.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toastEl.classList.remove('show'), 1700);
+      }
+
+      // Avance: primero la cola manual, luego el flujo lineal del álbum
+      function advance() {
+        if (upNext.length) { const i = upNext.shift(); renderQueue(); load(i, true); }
+        else load((current + 1) % QUEUE.length, true);
+      }
+
       playBtn.addEventListener('click', toggle);
       el('plPrev').addEventListener('click', () => load((current - 1 + QUEUE.length) % QUEUE.length, true));
-      el('plNext').addEventListener('click', () => load((current + 1) % QUEUE.length, true));
+      el('plNext').addEventListener('click', advance);
 
       audio.addEventListener('play', () => {
         playIcon.innerHTML = ICON_PAUSE;
@@ -1081,7 +1274,7 @@
         curEl.textContent = fmt(audio.currentTime);
         barEl.setAttribute('aria-valuenow', Math.round(pct));
       });
-      audio.addEventListener('ended', () => load((current + 1) % QUEUE.length, true));
+      audio.addEventListener('ended', advance);
 
       function seek(clientX) {
         const r = barEl.getBoundingClientRect();

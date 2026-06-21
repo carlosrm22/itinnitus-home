@@ -85,11 +85,13 @@ Carpeta: `~/Música/Carlos Romero/Originales para RouteNote/La Multiplicacion de
 
 Carpeta: `~/Música/Carlos Romero/Originales para RouteNote/Ares/`
 - `01 Fobos · 02 Deimos · 03 Marte` (MP3 320/44.1 nativos) + portada 3000. Label iTinnitus.
-- Género Electronic/Ambient. Instrumental → **Content ID OFF**, YouTube Music + todas, worldwide.
+- Género **Classical** (quinteto de cuerdas / cámara). Instrumental → **Content ID OFF**, YouTube Music + todas, worldwide.
 
-## ⚠️ Tramonto: PENDIENTE de aclarar autoría
-Acreditado a **Aurelio Cuello** (no a Carlos). Antes de distribuirlo: confirmar si es de Carlos,
-de Aurelio, o colaboración — y bajo qué nombre/cuenta va. NO subir hasta resolver.
+## Tramonto (Álbum, 7 pistas) — preparado 2026-06-20
+Carpeta: `~/Música/Carlos Romero/Originales para RouteNote/Tramonto/`
+- `01..07 *.mp3` (320/44.1) + portada 3000. Label iTinnitus. Género Jazz (contemporáneo).
+- **Artista principal: Carlos Romero** (arreglo/producción). **Contributors:** Aurelio Cuello (Performer/Composer) + Carlos (Composer/Arranger/Producer). Con permiso de Aurelio.
+- Instrumental → **Content ID OFF**. Detalle en su METADATOS.
 
 ## Pendiente futuro: YouTube para covers/adaptaciones
 Lo que NO va a tiendas (Los Ponchos, Cantina Bar, Bésame Chucho, Balada para un loko, Reflejo)
