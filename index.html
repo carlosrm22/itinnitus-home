@@ -95,6 +95,12 @@
       margin-bottom: 3px;
     }
 
+    /* Bio / Sobre mí */
+    .bio { color: var(--text); font-size: .96rem; line-height: 1.6; }
+    .bio p { margin: 0 0 12px; }
+    .bio p:last-child { margin-bottom: 0; }
+    .bio strong { font-weight: 700; }
+
     /* Secciones */
     .section-label {
       font-size: .72rem;
@@ -457,15 +463,48 @@
     <header>
       <img class="avatar" src="assets/carlos.jpg" alt="Carlos Alfonso Romero Muñoz" width="116" height="116" />
       <h1>Carlos Alfonso Romero Muñoz</h1>
-      <p class="tagline"><strong>Autor, compositor y desarrollador</strong>Economista y contador · educación Montessori, símbolos, música y código.</p>
+      <p class="tagline"><strong>Autor, compositor y desarrollador</strong>Economista · educación Montessori, símbolos, música y código.</p>
     </header>
 
     <!-- ============ NAVEGACIÓN ============ -->
     <nav class="section-nav" aria-label="Secciones">
+      <a href="#sobre-mi">Sobre mí</a>
       <a href="#libros">Libros</a>
       <a href="#musica">Música</a>
       <a href="#codigo">Código</a>
       <a href="#contacto">Contacto</a>
+    </nav>
+
+    <!-- ============ SOBRE MÍ ============ -->
+    <p class="section-label" id="sobre-mi">Sobre mí</p>
+    <div class="bio">
+      <p>Carlos Alfonso Romero Muñoz es economista, compositor, desarrollador y autor. Pero su formación empezó mucho antes de cualquier título: se educó íntegramente en el método Montessori —de nido a casa de niños y taller— de la mano de su madre, Roxana Muñoz, guía y autora Montessori. Esa raíz atraviesa todo lo que hace.</p>
+      <p>Desde hace más de quince años dirige la Asociación Montessori de México (AMMAC), y es contador financiero y cofundador de la Sociedad de Escuelas Montessori S.C. Escribe con regularidad en montessorimexico.org sobre educación, tecnología y finanzas: tres lenguajes que, en su trabajo, no compiten sino que se traducen entre sí.</p>
+      <p>Como autor diseñó la Biblioteca Hermética, una pequeña línea editorial con filosofía propia —el escepticismo mágico—: profundidad sin humo y rigor sin cinismo, para quien ama el misterio y desconfía de las certezas fáciles. Con la novela <em>Ain Sof: El evangelio del demiurgo que nació hacia atrás</em> llevó esa misma indagación a la ficción.</p>
+      <p>Cuando no escribe, compone música —del jazz contemporáneo al bolero y la guitarra eléctrica— y desarrolla software. Cree que el misterio no necesita mentir, que un símbolo bien leído ordena la atención mejor que cualquier promesa, y que se puede estudiar lo invisible sin apagar el incienso ni cerrar las ventanas.</p>
+      <p>Vive en Ciudad de México.</p>
+    </div>
+    <nav class="links" style="margin-top: 14px;">
+      <a class="link accent-red" href="https://asociacionmontessori.com.mx" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>
+        </span>
+        <span class="body">
+          <span class="title">Asociación Montessori de México</span>
+          <span class="sub">AMMAC · 15 años al frente</span>
+        </span>
+        <span class="chev" aria-hidden="true">→</span>
+      </a>
+      <a class="link accent-blue" href="https://certificacionmontessori.com/publicaciones" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </span>
+        <span class="body">
+          <span class="title">Mis publicaciones</span>
+          <span class="sub">Artículos y libros · certificacionmontessori.com</span>
+        </span>
+        <span class="chev" aria-hidden="true">→</span>
+      </a>
     </nav>
 
     <!-- ============ LIBROS ============ -->
