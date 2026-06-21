@@ -839,6 +839,9 @@
 
       // Construir la lista agrupada por álbum (colapsable + botón reproducir álbum)
       const qWrap = [];
+      const NOW = new Date();
+      // Un enlace con fecha .pub/.playlistPub solo se muestra cuando ya llegó esa fecha/hora
+      const pubReady = d => !d || new Date(d) <= NOW;
       let qi = 0;
       ALBUMS.forEach((al, ai) => {
         const startIdx = qi;
@@ -891,7 +894,7 @@
 
         // Fila de enlaces del álbum: playlist de YouTube + streaming (si existen)
         const albumLinks = [];
-        if (al.playlist) albumLinks.push({ url: al.playlist, label: 'Ver en YouTube', cls: 'yt', svg: YT_SVG });
+        if (al.playlist && pubReady(al.playlistPub)) albumLinks.push({ url: al.playlist, label: 'Ver en YouTube', cls: 'yt', svg: YT_SVG });
         if (al.links) {
           [['spotify', 'Spotify', SVG_SPOTIFY], ['apple', 'Apple Music', SVG_APPLE],
            ['ytmusic', 'YouTube Music', YT_SVG], ['amazon', 'Amazon Music', SVG_AMAZON],
@@ -922,7 +925,7 @@
             '<span class="eq"><i></i><i></i><i></i></span></span>' +
             '<span class="pl-tinfo"><span class="pl-tname"></span></span>';
           row.querySelector('.pl-tname').textContent = t.title;
-          if (t.youtube) {
+          if (t.youtube && pubReady(t.pub)) {
             const yt = document.createElement('a');
             yt.className = 'pl-yt';
             yt.href = t.youtube;
