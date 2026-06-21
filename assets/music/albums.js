@@ -175,18 +175,20 @@ const ALBUMS = [
     title: "Los Ponchos · Vol. 2",
     meta: "Boleros · voz de Alfonso Romero",
     cover: "assets/music/covers/los-ponchos-vol2.jpg",
+    playlist: "https://www.youtube.com/playlist?list=PLTomVcRsp05aUHNV1H7Wsks6hQiyNMSI3",
+    playlistPub: "2026-07-09T19:00",
     tracks: [
-      { title: "Algo Contigo", src: "assets/music/los-ponchos/2-01-algo-contigo.mp3" },
-      { title: "Cuerpo sin Alma", src: "assets/music/los-ponchos/2-02-cuerpo-sin-alma.mp3" },
-      { title: "Madrigal", src: "assets/music/los-ponchos/2-03-madrigal.mp3" },
-      { title: "Morenita", src: "assets/music/los-ponchos/2-04-morenita.mp3" },
-      { title: "No", src: "assets/music/los-ponchos/2-05-no.mp3" },
-      { title: "Ojalá", src: "assets/music/los-ponchos/2-06-ojala.mp3" },
-      { title: "Ojalá que te mueras", src: "assets/music/los-ponchos/2-07-ojala-que-te-mueras.mp3" },
-      { title: "Penélope", src: "assets/music/los-ponchos/2-08-penelope.mp3" },
-      { title: "Por Ti", src: "assets/music/los-ponchos/2-09-por-ti.mp3" },
-      { title: "Por ti lo siento", src: "assets/music/los-ponchos/2-10-por-ti-lo-siento.mp3" },
-      { title: "Huapango y La Fiesta (Bonus Track)", src: "assets/music/los-ponchos/2-11-huapago-y-la-fiesta-bonnus-track.mp3" }
+      { title: "Algo Contigo", src: "assets/music/los-ponchos/2-01-algo-contigo.mp3", youtube: "https://youtu.be/SJWhaam2m6c", pub: "2026-07-09T19:00" },
+      { title: "Cuerpo sin Alma", src: "assets/music/los-ponchos/2-02-cuerpo-sin-alma.mp3", youtube: "https://youtu.be/FQrTfnH7kfo", pub: "2026-07-10T19:00" },
+      { title: "Madrigal", src: "assets/music/los-ponchos/2-03-madrigal.mp3", youtube: "https://youtu.be/qPkRwneZITg", pub: "2026-07-11T19:00" },
+      { title: "Morenita", src: "assets/music/los-ponchos/2-04-morenita.mp3", youtube: "https://youtu.be/Q4orsXzcurk", pub: "2026-07-12T19:00" },
+      { title: "No", src: "assets/music/los-ponchos/2-05-no.mp3", youtube: "https://youtu.be/njGDuGPQi-8", pub: "2026-07-13T19:00" },
+      { title: "Ojalá", src: "assets/music/los-ponchos/2-06-ojala.mp3", youtube: "https://youtu.be/JeDsD44fJKI", pub: "2026-07-14T19:00" },
+      { title: "Ojalá que te mueras", src: "assets/music/los-ponchos/2-07-ojala-que-te-mueras.mp3", youtube: "https://youtu.be/gTI0ewdKNhc", pub: "2026-07-15T19:00" },
+      { title: "Penélope", src: "assets/music/los-ponchos/2-08-penelope.mp3", youtube: "https://youtu.be/LMLfSKniSPM", pub: "2026-07-16T19:00" },
+      { title: "Por Ti", src: "assets/music/los-ponchos/2-09-por-ti.mp3", youtube: "https://youtu.be/OgywJ5lTaBo", pub: "2026-07-17T19:00" },
+      { title: "Por ti lo siento", src: "assets/music/los-ponchos/2-10-por-ti-lo-siento.mp3", youtube: "https://youtu.be/JvcHFGdBHHk", pub: "2026-07-18T19:00" },
+      { title: "Huapango y La Fiesta (Bonus Track)", src: "assets/music/los-ponchos/2-11-huapago-y-la-fiesta-bonnus-track.mp3", youtube: "https://youtu.be/c7q64CCkTD8", pub: "2026-07-19T19:00" }
     ]
   },
   {
