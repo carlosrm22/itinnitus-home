@@ -46,8 +46,18 @@ pero si consigues una exportación mejor, conviene resubir.
 
 ---
 
+## El Dios sin manos (Álbum, 10 pistas) — preparado 2026-06-20
+
+Carpeta: `~/Música/Carlos Romero/Originales para RouteNote/El Dios sin manos/`
+- Audio: `01..10 *.mp3` (MP3 320 kbps / 44.1 kHz, en orden)
+- Portada: `El Dios sin manos - portada 3000.jpg` (3000×3000)
+- Artista: Carlos Romero · Idioma: Instrumental · (P)(C) 2026 Carlos Romero
+- Género sugerido: New Age / Ambient / Electronic
+- **Content ID: DESACTIVADO** (instrumental). Sí marcar YouTube Music + resto de tiendas.
+- Pistas y orden: ver `METADATOS RouteNote.txt` en esa carpeta.
+
 ## Pendientes / siguientes originales para distribuir
 - La Multiplicación de los Peces (jazz contemporáneo)
 - Tramonto (jazz contemporáneo · Aurelio Cuello)
-- El Dios sin manos (instrumental atmosférico)
-- El Gran Río (en filtrado)
+- Ares, La Tierra desde Marte, Primates Cósmicos, Carnevalle, El Carro, Trifase
+- El Gran Río
