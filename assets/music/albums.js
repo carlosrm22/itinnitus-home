@@ -65,11 +65,13 @@ const ALBUMS = [
     title: "Carnevalle",
     meta: "Piano y cuerdas · Carlos Romero",
     cover: "assets/music/covers/carnevalle.jpg",
+    playlist: "https://www.youtube.com/playlist?list=PLTomVcRsp05ZQLeX5ZNJck0FS8QbjMuhM",
+    playlistPub: "2026-08-06T19:00",
     tracks: [
-      { title: "Obertura", src: "assets/music/carnevalle/carnevalle-01.mp3" },
-      { title: "Mascarada", src: "assets/music/carnevalle/carnevalle-02.mp3" },
-      { title: "Arlequín", src: "assets/music/carnevalle/carnevalle-03.mp3" },
-      { title: "La commedia è finita", src: "assets/music/carnevalle/carnevalle-04.mp3" }
+      { title: "Obertura", src: "assets/music/carnevalle/carnevalle-01.mp3", youtube: "https://youtu.be/_Gh-Tb1Ek3c", pub: "2026-08-06T19:00" },
+      { title: "Mascarada", src: "assets/music/carnevalle/carnevalle-02.mp3", youtube: "https://youtu.be/lcTm4clxTwk", pub: "2026-08-07T19:00" },
+      { title: "Arlequín", src: "assets/music/carnevalle/carnevalle-03.mp3", youtube: "https://youtu.be/8xXcrTNTjXo", pub: "2026-08-08T19:00" },
+      { title: "La commedia è finita", src: "assets/music/carnevalle/carnevalle-04.mp3", youtube: "https://youtu.be/NN9sgGc9zP4", pub: "2026-08-09T19:00" }
     ]
   },
   {
